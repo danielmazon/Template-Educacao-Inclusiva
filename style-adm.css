@@ -1,0 +1,37 @@
+.cmb2-id-infantil-taxonomy-select, .cmb2-id-modalidade-taxonomy-select,.cmb2-id-fundamental-taxonomy-select,.cmb2-id-medio-taxonomy-select,.cmb2-id--nivelsuperior,.cmb2-id-curso-superior  {
+	padding:10px !important;
+}
+
+#praticas_foobox_exclude {
+	display:none;
+}
+#poststuff #post-body.columns-2 {
+	margin-right: 0;
+}
+
+div.instrucoes p {
+	font-size:16px;
+	text-align: justify;
+}
+
+div.instrucoes ul {
+	list-style-type: disc;
+	margin-left: 50px;
+}
+
+div.instrucoes li {
+	font-size:15px;
+}
+
+
+a.button.ur-insert-form-button { display: none; }
+
+
+/*
+#wpadminbar { display: none; }
+
+*/
+
+div#box_criterios.cmb2-postbox .cmb2-wrap>.cmb-field-list>.cmb-row {
+	padding: 0;
+}
