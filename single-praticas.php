@@ -4,7 +4,7 @@
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	
-	<div class="row" id="relato_pratica">
+	<article class="row" id="relato_pratica">
 	
 		<div class="col-md-8">
 
@@ -90,7 +90,7 @@
 
 		</div>
 		
-		<div class="col-md-4" id="lateral_single_praticas">
+		<aside class="col-md-4" id="lateral_single_praticas">
 
 			<aside id="mais_infos">
 
@@ -212,9 +212,9 @@
 
 		<?php endif; ?>
 
-		</div>
+		</aside>
 
-	</div>
+	</article>
 
 </div>
 

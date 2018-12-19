@@ -31,8 +31,19 @@
 
 			<li class="nav-item">
               <a class="nav-link" href="<?php echo get_site_url(); ?>/wp-admin">Entrar</a>
-            </li>
+			  
+			  <?php
+	if ( ! is_admin() ) {
+     echo '<a class="nav-link" href="' . get_site_url() . '/wp-admin">Entrar</a>';
+} else {
+     echo 'sair';
+}
 
+
+?>
+
+
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo get_site_url(); ?>/cadastro">Cadastre-se</a>
             </li>
@@ -41,3 +52,4 @@
         </div>
       </div>
     </nav>
+	

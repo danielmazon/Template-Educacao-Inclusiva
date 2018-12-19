@@ -1,5 +1,14 @@
 <?php
 
+
+
+
+add_action('add_meta_boxes', function() {
+  add_meta_box('submitdiv', __('Publish'), 'post_submit_meta_box', 'praticas', 'normal', 'low');
+});
+
+
+
 // Filtros para colocar o textos cmb2 corretamente no frontend
 add_filter( 'meta_content', 'wptexturize' );
 add_filter( 'meta_content', 'convert_smilies' );
