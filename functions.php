@@ -1,7 +1,14 @@
 <?php
 
+require_once( dirname( __FILE__ ) . '/inc/add-menu-relatos.php');
 
+require_once( dirname( __FILE__ ) . '/inc/cmb2.php');
 
+require_once( dirname( __FILE__ ) . '/inc/registro-cpt-praticas.php');
+
+require_once( dirname( __FILE__ ) . '/inc/remove-menu-colaboradores.php');
+
+require_once( dirname( __FILE__ ) . '/inc/tags.php');
 
 add_action('add_meta_boxes', function() {
   add_meta_box('submitdiv', __('Publish'), 'post_submit_meta_box', 'praticas', 'normal', 'low');
