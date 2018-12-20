@@ -2,7 +2,7 @@
 
 /**
  * Cria menu rápido para escrever relatos
- */
+
 add_action( 'admin_bar_menu', 'menu_praticas', 900 );
 function menu_praticas($wp_admin_bar)
 {
@@ -17,4 +17,4 @@ function menu_praticas($wp_admin_bar)
 	foreach( $args as $each_arg)	{
 		$wp_admin_bar->add_node($each_arg);
 	}	
-}
+} */

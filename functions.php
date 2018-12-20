@@ -10,6 +10,7 @@ require_once( dirname( __FILE__ ) . '/inc/remove-menu-colaboradores.php');
 
 require_once( dirname( __FILE__ ) . '/inc/tags.php');
 
+
 add_action('add_meta_boxes', function() {
   add_meta_box('submitdiv', __('Publish'), 'post_submit_meta_box', 'praticas', 'normal', 'low');
 });
@@ -38,7 +39,7 @@ add_filter( 'logout_redirect', function( $url, $query, $user ) {
 }, 10, 3 );
 
 
-// Filtros para colocar o textos cmb2 corretamente no frontend
+// Filtros para colocar o textos cmb2 corretamente no frontend, estava dando problema com as linhas novas
 add_filter( 'meta_content', 'wptexturize' );
 add_filter( 'meta_content', 'convert_smilies' );
 add_filter( 'meta_content', 'convert_chars' );
