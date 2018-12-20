@@ -10,7 +10,7 @@ function menu_praticas($wp_admin_bar)
 	array_push($args,array(
 		'id'		=>	'praticas',
 		'title'		=>	'+ Clique aqui e escreva o seu relato',
-		'href'		=>	'post-new.php?post_type=praticas',
+		'href'		=>	get_site_url() . '/wp-admin/post-new.php?post_type=praticas',
 	));
 
 	sort($args);
