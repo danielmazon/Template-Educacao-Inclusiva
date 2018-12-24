@@ -59,7 +59,7 @@ function box_deficiencias() {
 
 	$cmb = new_cmb2_box( array(
 		'id'            => 'box_deficiencias',
-		'title'         => __( 'Deficiências atendidas:', 'cmb2' ),
+		'title'         => __( 'Público-alvo atendido:', 'cmb2' ),
 		'object_types'  => array( 'praticas', ),
 		'context'       => 'normal',
 		'priority'      => 'high',
@@ -67,7 +67,7 @@ function box_deficiencias() {
 	) );
 	
 	$cmb->add_field( array(
-		'name'           => 'Deficiências atendidas ',
+		'name'           => 'Público-alvo atendido ',
 		'desc'           => '',
 		'id'             => 'deficiencia',
 		'taxonomy'       => 'deficiencia',
@@ -105,14 +105,14 @@ function cmb2_sample_metaboxes() {
 
 	$cmb->add_field( array(
 		'name' => 'Quantos alunos participaram desta prática inclusiva?',
-		'desc' => '',
+		'desc' => 'Informe neste campo a quantidade de alunos que participou em cada aplicação da prática inclusiva, incluindo o público-alvo atendido, se for o caso.<br />Exemplo: <br />"30 estudantes" ou<br />"Turmas de 35 estudantes" ou<br />"Turmas de 20 a 40 estudantes"<br />etc.',
 		'default' => '',
 		'id' => 'curso_alunos',
 		'type' => 'text'
 	) );
 
 	$cmb->add_field( array(
-		'name' => 'Quantos alunos deficientes envolvidos?',
+		'name' => 'Quantos alunos com deficiência envolvidos?',
 		'desc' => 'Se sua prática não aborda alunos com deficência, este campo não é obrigatório.',
 		'default' => '',
 		'id' => 'quantos',
@@ -144,7 +144,7 @@ function cmb2_sample_metaboxes() {
 	) );
 	
 	$cmb->add_field( array(
-		'name' => 'Quais recursos educacionais foram utilizados?',
+		'name' => 'Materiais e tecnologias utilizadas como por exemplo: papel, caneta, tablet, computadores, bengalas etc.?',
 		'desc' => 'Conte-nos quais os recursos educacionais foram utilizados',
 		'default' => '',
 		'id' => 'quais_recursos',
