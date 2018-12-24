@@ -38,6 +38,14 @@ Tags:
 	border-bottom: 5px solid #fff;
 }
 
+#outras_praticas {
+	background-color:#f8f9fa;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-top:10px;
+	border-bottom: 5px solid #fff;
+}
+
 #mais_infos p {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
 	color:#666;
@@ -260,6 +268,7 @@ section h2 {
 #mainNav .navbar-nav > li > a {
   font-size: 11px;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
@@ -603,4 +612,20 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 .btn-xl {
   font-size: 11px;
   padding: 15px 45px;
+}
+
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
 }
