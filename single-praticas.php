@@ -17,22 +17,23 @@
 			<?php
 				
 				// Inicio da prática
-				
 				$curso_alunos = get_post_meta( get_the_ID(), 'curso_alunos', true ); 
 				if ( !empty($curso_alunos)){
 					echo '<h2>Quantos alunos participaram desta prática inclusiva?</h2>';
 					echo apply_filters('meta_content', $curso_alunos);
 				}
-               
+				/* User: igor - Correção apontada pela Daniele dia 15/10/2018, conforme planilha compartilhada de controle de alterações do
+					projeto */
 				$tag = get_post_meta( get_the_ID(), 'tag', true ); 
 				if ( !empty($tag)){
-					echo '<h2>Quantos alunos deficientes envolvidos?</h2>';
+					echo '<h2>Quantos alunos com deficiência envolvidos?</h2>';
 					echo apply_filters('meta_content', $tag);
 				}
-               
+				/* User: igor - Correção apontada pela Daniele dia 15/10/2018, conforme planilha compartilhada de controle de alterações do
+					projeto */
 				$quantos = get_post_meta( get_the_ID(), 'quantos', true ); 
 				if ( !empty($quantos)){
-					echo '<h2>Quantos alunos deficientes envolvidos?</h2>';
+					echo '<h2>Quantos alunos com deficiência envolvidos?</h2>';
 					echo apply_filters('meta_content', $quantos);
 				}
                
@@ -100,53 +101,62 @@
 				
 					$terms = get_terms( 'criterios' );
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						echo '<p>Deficiências atendidas:';
+						echo '<p>Público-alvo atendido:';
 						echo '&nbsp;';
+						$virgula = "";
 						 foreach ( $terms as $term ) {
-						   echo '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, &nbsp;';
+						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
+						   $virgula = ", ";							
 						 }
-						 echo '</br></p>';
+						 echo '.</br></p>';
 					 }
 
 					$terms = get_terms( 'modalidade' );
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 						echo '<p>Modalidade da prática:';
 						echo '&nbsp;';
+						$virgula = "";
 						 foreach ( $terms as $term ) {
-						   echo '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, &nbsp;';
-							
+						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
+						   $virgula = ", ";							
 						 }
-						 echo '</br></p>';
+						 echo '.</br></p>';
 					 }
 
 					$terms = get_terms( 'infantil' );
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 						 echo '<p>Ensino Intantil:';
 						 echo '&nbsp;';
+						$virgula = "";
 						 foreach ( $terms as $term ) {
-						   echo '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, &nbsp;';
+						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
+						   $virgula = ", ";							
 						 }
-						 echo '</br></p>';
+						 echo '.</br></p>';
 					 }
 
 					$terms = get_terms( 'fundamental' );
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 						 echo '<p>Ensino Fundamental:';
 						 echo '&nbsp;';
+						$virgula = "";
 						 foreach ( $terms as $term ) {
-						   echo '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, &nbsp;';
+						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
+						   $virgula = ", ";							
 						 }
-						 echo '</br></p>';
+						 echo '.</br></p>';
 					 }
 					 
 					$terms = get_terms( 'medio' );
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 						 echo '<p>Ensino Médio:';
 						 echo '&nbsp;';
+						$virgula = "";
 						 foreach ( $terms as $term ) {
-						   echo '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, &nbsp;';
+						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
+						   $virgula = ", ";							
 						 }
-						 echo '</br></p>';
+						 echo '.</br></p>';
 					 }
 					 
 
@@ -154,20 +164,24 @@
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 						 echo '<p>Ensino Superior:';
 						 echo '&nbsp;';
+						$virgula = "";
 						 foreach ( $terms as $term ) {
-						   echo '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, &nbsp;';
+						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
+						   $virgula = ", ";							
 						 }
-						 echo '</br></p>';
+						 echo '.</br></p>';
 					 }
 					 
 					$terms = get_terms( 'deficiencia' );
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						echo '<p>Deficiências atendidas:';
+						echo '<p>Público-alvo atendido:';
 						echo '&nbsp;';
+						$virgula = "";
 						 foreach ( $terms as $term ) {
-						   echo '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, &nbsp;';
+						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
+						   $virgula = ", ";							
 						 }
-						 echo '</br></p>';
+						 echo '.</br></p>';
 					 }		
 				?>
 				
