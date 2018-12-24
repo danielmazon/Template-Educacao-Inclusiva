@@ -59,7 +59,7 @@ function relato_praticas_post_type(){
 			),
 		'map_meta_cap' => true,
 		'hierarchical' => false,
-		'supports' => array( 'title', 'thumbnail', 'excerpt' ),
+		'supports' => array( 'title', 'thumbnail', 'excerpt', 'comments' ),
 		'has_archive' => true,
 		);
 
