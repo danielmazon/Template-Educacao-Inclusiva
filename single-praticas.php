@@ -104,6 +104,10 @@
 				
 			?>
 
+			<div>	
+			<?php comments_template(); ?>
+			</div>
+			
 		</div>
 		
 		<aside class="col-md-4" id="lateral_single_praticas">
@@ -234,7 +238,7 @@
 				<?php endwhile; ?>
 				
 			</aside>
-
+		
 		<?php endwhile; else: ?>
 
 		<p>Desculpe, nenhum relato corresponde aos seus critérios.</p>
@@ -244,6 +248,8 @@
 		</aside>
 
 	</article>
+	
+	
 
 </div>
 
