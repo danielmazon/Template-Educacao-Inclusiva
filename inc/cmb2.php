@@ -59,7 +59,7 @@ function box_deficiencias() {
 
 	$cmb = new_cmb2_box( array(
 		'id'            => 'box_deficiencias',
-		'title'         => __( 'Deficiências atendidas:', 'cmb2' ),
+		'title'         => __( 'Público-alvo atendido:', 'cmb2' ),
 		'object_types'  => array( 'praticas', ),
 		'context'       => 'normal',
 		'priority'      => 'high',
@@ -67,7 +67,7 @@ function box_deficiencias() {
 	) );
 	
 	$cmb->add_field( array(
-		'name'           => 'Deficiências atendidas ',
+		'name'           => 'Público-alvo atendido ',
 		'desc'           => '',
 		'id'             => 'deficiencia',
 		'taxonomy'       => 'deficiencia',
@@ -105,14 +105,14 @@ function cmb2_sample_metaboxes() {
 
 	$cmb->add_field( array(
 		'name' => 'Quantos alunos participaram desta prática inclusiva?',
-		'desc' => '',
+		'desc' => 'Informe neste campo a quantidade de alunos que participou em cada aplicação da prática inclusiva, incluindo o público-alvo atendido, se for o caso.<br />Exemplo: <br />"30 estudantes" ou<br />"Turmas de 35 estudantes" ou<br />"Turmas de 20 a 40 estudantes"<br />etc.',
 		'default' => '',
 		'id' => 'curso_alunos',
 		'type' => 'text'
 	) );
 
 	$cmb->add_field( array(
-		'name' => 'Quantos alunos deficientes envolvidos?',
+		'name' => 'Quantos alunos com deficiência envolvidos?',
 		'desc' => 'Se sua prática não aborda alunos com deficência, este campo não é obrigatório.',
 		'default' => '',
 		'id' => 'quantos',
@@ -144,7 +144,7 @@ function cmb2_sample_metaboxes() {
 	) );
 	
 	$cmb->add_field( array(
-		'name' => 'Quais recursos educacionais foram utilizados?',
+		'name' => 'Materiais e tecnologias utilizadas como por exemplo: papel, caneta, tablet, computadores, bengalas etc.?',
 		'desc' => 'Conte-nos quais os recursos educacionais foram utilizados',
 		'default' => '',
 		'id' => 'quais_recursos',
@@ -166,6 +166,7 @@ function cmb2_sample_metaboxes() {
 		'type'    => 'textarea',
 		'options' => array(),
 	) );
+	
 	/*
 	$cmb->add_field( array(
 		'name'    => 'Detalhe a sua prática',
@@ -201,7 +202,7 @@ function box_imagens() {
 	
 	$cmb = new_cmb2_box( array(
 		'id'            => '_box_imagens',
-		'title'         => __( 'Envie imagens da prática:', 'cmb2' ),
+		'title'         => __( 'Envie imagens e vídeos da prática:', 'cmb2' ),
 		'object_types'  => array( 'praticas', ),
 		'context'       => 'normal',
 		'priority'      => 'default',
@@ -231,7 +232,30 @@ function box_imagens() {
 		),
 	) );
 	
+	$group_field_id = $cmb->add_field( array(
+		'id'          => 'videos_group',
+		'type'        => 'group',
+		'description' => __( 'Caso queira incluir vídeos do Youtube nesta prática, informe os links a seguir', 'cmb2' ),
+		// 'repeatable'  => false, // use false if you want non-repeatable group
+		'options'     => array(
+			'group_title'   => __( 'Vídeo {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+			'add_button'    => __( 'Incluir novo vídeo', 'cmb2' ),
+			'remove_button' => __( 'Remover vídeo', 'cmb2' ),
+			'sortable'      => true, // beta
+			// 'closed'     => true, // true to have the groups closed by default
+		),
+	) );
+	
+	// Id's for group's fields only need to be unique for the group. Prefix is not needed.
+	$cmb->add_group_field( $group_field_id, array(
+		'name' => 'Link do Youtube',
+		'desc' => 'Informe o link do Youtube que deseja compartilhar.',
+		'id'   => 'link_youtube',
+		'type' => 'oembed',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
 }
+
 
 /**
  **  BOX Aceitar Condições / Regras do site

@@ -1,43 +1,60 @@
 <?php get_header(); ?>
 
-<div class="container" style="padding-top:100px;">
+<?php 
+$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+//var_dump($curauth);
+?>
+
+<div class="container">
+
+	<article class="row" id="relato_pratica">
+
+		<div class="col-md-10">
+	
+			<?php //if (function_exists('get_avatar')) { echo get_avatar( get_the_author_email(), '100' ); }?>
+			<h1>Sobre o autor <?php echo $curauth->display_name; ?></h1>
+			
+			<p><?php echo $curauth->description; ?></p>
+			
+			<h1 style="padding-top:20px">Práticas publicadas </h1>
+
+				<div class="container">
+					
+					<div class="row">
+
+						<?php
+							$loop = new WP_Query( array( 'post_type' => 'praticas', 'author' => $curauth->ID ) );
+							while ( $loop->have_posts() ) : $loop->the_post();
+						?> 
+							
+							<div class="col-md-6">
+
+								<div class="borda-praticas">
 
 
+									<h4><a href="<?php the_permalink(); ?>" style="font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; color:#dd4b39;"><?php the_title(); ?></a></h4>
 
-<div id="autorarea">
-<?php if (function_exists('get_avatar')) { echo get_avatar( get_the_author_email(), '100' ); }?>
-<div>
-<h3>Sobre o Autor <?php the_author_posts_link(); ?></h3>
-<p><?php the_author_description(); ?></p>
-</div>
-</div>
+									<?php if (has_post_thumbnail( $post->ID ) ): ?>
+									
+										<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" style="float:left; margin:0 20px 10px 0;" >
+											<?php the_post_thumbnail('thumbnail'); ?>
+										</a>
+										
+									<?php endif; ?> 
+									
+									<?php $myExcerpt = get_the_excerpt(); $tags = array("<p>", "</p>"); $myExcerpt = str_replace($tags, "", $myExcerpt); echo $myExcerpt; ?>
 
-<p><?php //echo do_shortcode( '[wppb-register role="first_name"]' ); ?></p>
+								</div>
+							</div>
 
-<p><?php //echo do_shortcode( '[meta "first_name"]' ); ?></p>
+						<?php endwhile; ?> 
 
-
-
-
-
-<div class="author-info">
-	<h2 class="author-heading"><?php _e( 'Published by', 'twentyfifteen' ); ?></h2>
-	<div class="author-avatar"><?php //echo get_wp_user_avatar(get_the_author_meta('ID'), 96); ?>
-
-	</div><!-- .author-avatar -->
-
-	<div class="author-description">
-		<h3 class="author-title"><?php echo get_the_author(); ?></h3>
-
-		<p class="author-bio">
-			<?php the_author_meta( 'description' ); ?>
-			<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-				<?php printf( __( 'View all posts by %s', 'twentyfifteen' ), get_the_author() ); ?>
-			</a>
-		</p><!-- .author-bio -->
-
-	</div><!-- .author-description -->
-</div><!-- .author-info -->
+					</div>	
+					
+				</div>
+			
+		</div>
+	</article>
 </div>
 
 

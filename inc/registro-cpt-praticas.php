@@ -16,9 +16,9 @@ function relato_praticas_post_type(){
 		'add_new_item'          => __( 'Compartilhando sua experiência educacional inclusiva', 'text_domain' ),
 		'add_new'               => __( 'Novo relato', 'text_domain' ),
 		'new_item'              => __( 'Criar novo', 'text_domain' ),
-		'edit_item'             => __( 'Descrição da prática educacional inclusiva', 'text_domain' ),
+		'edit_item'             => __( 'Editar esta prática', 'text_domain' ),
 		'update_item'           => __( 'Atualizar relato', 'text_domain' ),
-		'view_item'             => __( 'Ver relato', 'text_domain' ),
+		'view_item'             => __( 'Ver esta prática no site', 'text_domain' ),
 		'view_items'            => __( 'Ver relatos', 'text_domain' ),
 		'search_items'          => __( 'Procurar relato', 'text_domain' ),
 		'not_found'             => __( 'Não encontrado', 'text_domain' ),
@@ -59,7 +59,7 @@ function relato_praticas_post_type(){
 			),
 		'map_meta_cap' => true,
 		'hierarchical' => false,
-		'supports' => array( 'title', 'thumbnail', 'excerpt' ),
+		'supports' => array( 'title', 'thumbnail', 'excerpt', 'comments' ),
 		'has_archive' => true,
 		);
 
