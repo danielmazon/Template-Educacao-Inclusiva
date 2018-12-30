@@ -4,7 +4,7 @@
 <section class="container">
 
 	<nav aria-label="caminho de migalhas" style="width:100%;">
-		<?php the_breadcrumb(); ?>
+		<?php //the_breadcrumb(); ?>
 	</nav>
 	
 	<div id="inicio_archive">
@@ -23,9 +23,13 @@
 					</div>
 				
 					<div class="col-md-3">
-						<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( ' %s', 'thirdstyle' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-							<?php the_post_thumbnail( thumbnail ); ?>
-						</a>
+						<?php if (has_post_thumbnail( $post->ID ) ): ?>
+							
+								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" style="float:left; margin:0 20px 10px 0;" >
+									<?php the_post_thumbnail('thumbnail'); ?>
+								</a>
+								
+							<?php endif; ?> 
 					</div>
 
 				</div>
