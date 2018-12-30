@@ -118,7 +118,7 @@
 	
 				<?php //MOSTRAR TAXONOMIAS
 				
-					$terms = get_terms( 'criterios' );
+					/*$terms = get_terms( 'criterios' );
 					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 						echo '<p>Público-alvo atendido:';
 						echo '&nbsp;';
@@ -201,9 +201,24 @@
 						   $virgula = ", ";							
 						 }
 						 echo '.</br></p>';
-					 }		
+					 }	*/	
 				?>
-				
+
+			
+			<?php 
+			// Listas as taxonomias, porém lista somente o filho da categoria nível.
+			$args = array(
+				//default to current post
+				'post' => 0,
+				'before' => '<p>',
+				//this is the default
+				'sep' => ' ',
+				'after' => '</p>',
+				//this is the default
+				'template' => '<p>%s: %l.</p>'
+			);
+			the_taxonomies( $args ); 
+			?> 
 			</aside>
 			
 			<aside id="outras_praticas">

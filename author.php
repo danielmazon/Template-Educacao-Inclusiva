@@ -9,7 +9,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 
 	<article class="row" id="relato_pratica">
 
-		<div class="col-md-10">
+		<div class="col-md-12">
 	
 			<?php //if (function_exists('get_avatar')) { echo get_avatar( get_the_author_email(), '100' ); }?>
 			<h1>Sobre o autor <?php echo $curauth->display_name; ?></h1>
@@ -24,30 +24,43 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 
 						<?php
 							$loop = new WP_Query( array( 'post_type' => 'praticas', 'author' => $curauth->ID ) );
-							while ( $loop->have_posts() ) : $loop->the_post();
-						?> 
-							
-							<div class="col-md-6">
+							if ( $loop->have_posts() ) {
+								while ( $loop->have_posts() ) : $loop->the_post();
+								?> 
+								
+								<div class="col-md-6">
 
-								<div class="borda-praticas">
+									<div class="borda-praticas">
 
 
-									<h4><a href="<?php the_permalink(); ?>" style="font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; color:#dd4b39;"><?php the_title(); ?></a></h4>
+										<h4><a href="<?php the_permalink(); ?>" style="font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; color:#dd4b39;"><?php the_title(); ?></a></h4>
 
-									<?php if (has_post_thumbnail( $post->ID ) ): ?>
-									
-										<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" style="float:left; margin:0 20px 10px 0;" >
-											<?php the_post_thumbnail('thumbnail'); ?>
-										</a>
+										<?php if (has_post_thumbnail( $post->ID ) ): ?>
 										
-									<?php endif; ?> 
-									
-									<?php $myExcerpt = get_the_excerpt(); $tags = array("<p>", "</p>"); $myExcerpt = str_replace($tags, "", $myExcerpt); echo $myExcerpt; ?>
+											<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" style="float:left; margin:0 20px 10px 0;" >
+												<?php the_post_thumbnail('thumbnail'); ?>
+											</a>
+											
+										<?php endif; ?> 
+										
+										<?php $myExcerpt = get_the_excerpt(); $tags = array("<p>", "</p>"); $myExcerpt = str_replace($tags, "", $myExcerpt); echo $myExcerpt; ?>
 
+									</div>
 								</div>
-							</div>
 
-						<?php endwhile; ?> 
+							<?php 
+								endwhile; 
+								
+							} else {
+								?>
+								<div class="col-md-12">
+									<div class="borda-praticas">
+										<p>Este autor ainda não publicou práticas inclusivas.</p>
+									</div>
+								</div>
+								<?php
+							}
+							?> 
 
 					</div>	
 					
