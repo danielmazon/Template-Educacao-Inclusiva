@@ -45,7 +45,7 @@
               <?php endif;?>
             </li>
 	    <li class="nav-item">
-		<a class="nav-link" href="<?php echo get_site_url(); ?>"/sobre>Sobre o projeto</a>
+		<a class="nav-link" href="<?php echo get_site_url(); ?>/sobre">Sobre</a>
 	    </li>
             <li class="nav-item">
               <?php if (is_user_logged_in()) : ?>
