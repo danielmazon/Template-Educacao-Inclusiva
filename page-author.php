@@ -1,10 +1,11 @@
 <?php get_header(); ?>
 
 <div class="container">
-
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<article class="row" id="relato_pratica">
 	
 			<?php //if (function_exists('get_avatar')) { echo get_avatar( get_the_author_email(), '100' ); }?>
+			
 			<h1>Lista de autores</h1>
 			
 				<div class="container">
@@ -32,9 +33,13 @@
 					</div>	
 					
 				</div>
-		
+			
+			<?php 
+			/* User: igor - Plugins usam esse hook para posicionar seus conteúdos, por isso o hook foi chamado nessa posição */
+			the_content(); ?>
+
 	</article>
-	
+	<?php endwhile; endif; ?>
 </div>
 
 

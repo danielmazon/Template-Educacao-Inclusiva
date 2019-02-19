@@ -3,12 +3,14 @@
 
 <section class="container">
 
-	<nav aria-label="caminho de migalhas" style="width:100%;">
+	<!--<nav aria-label="caminho de migalhas" style="width:100%;">
 		<?php //the_breadcrumb(); ?>
-	</nav>
+	</nav>-->
 	
-	<div id="inicio_archive">
+	<div id="relato_pratica">
 	
+		<h1><?php single_cat_title(); ?></h1>
+			
 			<?php if (have_posts()) : ?>
             
             <?php while (have_posts()) : the_post(); ?>            
@@ -43,6 +45,11 @@
             <h2>Não localizado</h2>
     
             <?php endif; ?>
+	</div>
+	
+	<?php 
+	/* User: igor - Plugins usam esse hook para posicionar seus conteúdos, por isso o hook foi chamado nessa posição */
+	the_content(); ?>
 	
 </section>
 

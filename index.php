@@ -43,7 +43,31 @@
 	
 		<div style="background-color:#dd4b39; margin-bottom:30px;">
 			<div class="container">
-				<h3 style="color:#fff; padding-bottom:30px; padding-top:30px;    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Práticas compartilhadas:</h3>
+				<h3  style="position: relative; float:right; color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Encontrar por: <?php
+				  $categories = get_categories('taxonomy=deficiencia');
+				 
+				  $select = "<select name='cat' id='cat' class='postform'>n";
+				  $select.= "<option value='-1'>Necessidade</option>n";
+				 
+				  foreach($categories as $category){
+					if($category->count > 0){
+						$select.= "<option value='".$category->slug."'>".$category->name."</option>";
+					}
+				  }
+				  $select.= "</select>";
+				  echo $select;
+				?>
+				</h3><h3 style="color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Práticas compartilhadas: 
+				</h3>
+				<script type="text/javascript"><!--
+					var dropdown = document.getElementById("cat");
+					function onCatChange() {
+						if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
+							location.href = "<?php echo home_url();?>/deficiencia/"+dropdown.options[dropdown.selectedIndex].value+"/";
+						}
+					}
+					dropdown.onchange = onCatChange;
+				--></script>
 			</div>
 		</div>
 		

@@ -105,6 +105,9 @@
 			?>
 
 			<div>	
+			<?php 
+			/* User: igor - Plugins usam esse hook para posicionar seus conteúdos, por isso o hook foi chamado nessa posição */
+			the_content(); ?>
 			<?php comments_template(); ?>
 			</div>
 			
@@ -253,6 +256,7 @@
 				<?php endwhile; ?>
 				
 			</aside>
+		
 		
 		<?php endwhile; else: ?>
 
