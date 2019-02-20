@@ -43,8 +43,6 @@
 	
 		<div style="background-color:#dd4b39; margin-bottom:30px;">
 			<div class="container">
-				<h3 style="color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Práticas compartilhadas: 
-				</h3>
 				<small  style="position: relative; float:right; color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Encontrar por: <?php
 				  $categories = get_categories('taxonomy=deficiencia');
 				 
@@ -60,7 +58,8 @@
 				  echo $select;
 				?>
 				</small>
-				
+				<h3 style="color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Práticas compartilhadas: 
+				</h3>
 				<script type="text/javascript"><!--
 					var dropdown = document.getElementById("cat");
 					function onCatChange() {
