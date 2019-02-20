@@ -65,7 +65,10 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 					</div>	
 					
 				</div>
-			
+			<?php 
+			/* User: igor - Plugins usam esse hook para posicionar seus conteúdos, por isso o hook foi chamado nessa posição */
+			the_content(); ?>
+
 		</div>
 	</article>
 </div>
