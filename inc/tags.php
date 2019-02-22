@@ -38,6 +38,7 @@ function nivel_init() {
         array('praticas'),
         array(
             'label' => __( 'Nível de Ensino' ),
+			'rewrite' => array('slug' => 'nivel', 'hierarchical' => true),
             'labels' =>  array(
                 'name'              => esc_html( 'Nível de Ensino', 'taxonomy general name' ),
                 'singular_name'     => esc_html( 'Nível de Ensino', 'taxonomy singular name' ),
@@ -69,6 +70,7 @@ function deficiencia_init() {
         array('praticas'),
         array(
             'label' => __( 'Deficiências' ),
+			'rewrite' => array( 'slug' => 'deficiencia' ),
             'labels' =>  array(
                 'name'              => esc_html( 'Tipos de Deficiência', 'taxonomy general name' ),
                 'singular_name'     => esc_html( 'Tipos de Deficiência', 'taxonomy singular name' ),
@@ -88,6 +90,38 @@ function deficiencia_init() {
 					'assign_terms' => 'read',
 				),
             'hierarchical' => true
+          )
+     );
+}
+
+// Criando a categoria outros públicos
+add_action( 'init', 'outrospublicos_init' );
+function outrospublicos_init() {
+    register_taxonomy(
+        'outros-publicos',
+        array('praticas'),
+        array(
+            'label' => __( 'Outros públicos' ),
+			'rewrite' => array( 'slug' => 'outros-publicos' ),
+            'labels' =>  array(
+                'name'              => esc_html( 'Outros públicos', 'taxonomy general name' ),
+                'singular_name'     => esc_html( 'Outro público', 'taxonomy singular name' ),
+                'menu_name'         => esc_html( 'Outros públicos' ),
+                'all_items'         => esc_html( 'Todos os outros públicos' ),
+                'edit_item'         => esc_html( 'Editar público' ),
+                'view_item'         => esc_html( 'Visualizar público' ),
+                'update_item'       => esc_html( 'Alterar público' ),
+                'add_new_item'      => esc_html( 'Adicionar público' ),
+                'search_items'      => esc_html( 'Procurar público' ),
+                'not_found'         => esc_html( 'Nenhuma público encontrado' ),
+               ),
+			    'capabilities' => array(
+					'manage_terms' => 'edit_posts',
+					'edit_terms'   => 'edit_posts',
+					'delete_terms' => 'edit_posts',
+					'assign_terms' => 'read',
+				),
+            'hierarchical' => false
           )
      );
 }

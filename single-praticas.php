@@ -118,110 +118,47 @@
 			<aside id="mais_infos">
 
 				<h4>Sobre esta prática inclusiva:</h4>
-	
-				<?php //MOSTRAR TAXONOMIAS
-				
-					/*$terms = get_terms( 'criterios' );
-					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						echo '<p>Público-alvo atendido:';
-						echo '&nbsp;';
-						$virgula = "";
-						 foreach ( $terms as $term ) {
-						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
-						   $virgula = ", ";							
-						 }
-						 echo '.</br></p>';
-					 }
-
-					$terms = get_terms( 'modalidade' );
-					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						echo '<p>Modalidade da prática:';
-						echo '&nbsp;';
-						$virgula = "";
-						 foreach ( $terms as $term ) {
-						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
-						   $virgula = ", ";							
-						 }
-						 echo '.</br></p>';
-					 }
-
-					$terms = get_terms( 'infantil' );
-					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						 echo '<p>Ensino Intantil:';
-						 echo '&nbsp;';
-						$virgula = "";
-						 foreach ( $terms as $term ) {
-						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
-						   $virgula = ", ";							
-						 }
-						 echo '.</br></p>';
-					 }
-
-					$terms = get_terms( 'fundamental' );
-					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						 echo '<p>Ensino Fundamental:';
-						 echo '&nbsp;';
-						$virgula = "";
-						 foreach ( $terms as $term ) {
-						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
-						   $virgula = ", ";							
-						 }
-						 echo '.</br></p>';
-					 }
-					 
-					$terms = get_terms( 'medio' );
-					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						 echo '<p>Ensino Médio:';
-						 echo '&nbsp;';
-						$virgula = "";
-						 foreach ( $terms as $term ) {
-						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
-						   $virgula = ", ";							
-						 }
-						 echo '.</br></p>';
-					 }
-					 
-
-					$terms = get_terms( 'superior' );
-					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						 echo '<p>Ensino Superior:';
-						 echo '&nbsp;';
-						$virgula = "";
-						 foreach ( $terms as $term ) {
-						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
-						   $virgula = ", ";							
-						 }
-						 echo '.</br></p>';
-					 }
-					 
-					$terms = get_terms( 'deficiencia' );
-					 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-						echo '<p>Público-alvo atendido:';
-						echo '&nbsp;';
-						$virgula = "";
-						 foreach ( $terms as $term ) {
-						   echo $virgula . '<a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>';
-						   $virgula = ", ";							
-						 }
-						 echo '.</br></p>';
-					 }	*/	
+				<?php 
+				/* User: Igor - Modificação no código de exibição das taxonomias para exibir os itens pai das taxonomias que possuem hierarquia. */
+				// Recupera as taxonomias de modalidade deste post
+				$terms = wp_get_post_terms( $post->ID, 'modalidade' ); 
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+					echo '<p>Modalidade de ensino: <a href="' . esc_url( get_term_link($terms[0]->term_id) ) . '">' . $terms[0]->name . '</a>.</p>';
+				}
+				// Recupera as taxonomias de nivel deste post
+				$terms = wp_get_post_terms( $post->ID, 'nivel' ); 
+				//var_dump($terms);
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+					//Verificar se há nível pai
+					if($terms[0]->parent != "0") {
+						$parent = get_term_by('id', $terms[0]->parent, 'nivel' );
+						$txt_parent = '<a href="' . get_term_link($terms[0]->parent) . '">' . $parent->name . '</a> / ';
+					} else $parent = '';
+					echo '<p>Nível de ensino: ' . $txt_parent . ' <a href="' . esc_url( get_term_link($terms[0]->term_id) ) . '">' . $terms[0]->name . '</a>.</p>';
+				}
+				// Recupera as taxonomias de deficiência deste post
+				$terms = wp_get_post_terms( $post->ID, 'deficiencia' ); 
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+					echo '<p>Tipos de deficiência: ';
+					$virgula = "";
+					foreach ( $terms as $term ) {
+						echo $virgula . '<a href="' . esc_url( get_term_link($term->term_id) ) . '">' . $term->name . '</a>';
+						$virgula = ", ";							
+					}
+					echo '.</p>';
+				}
+				// Recupera as taxonomias de outros-públicos deste post
+				$terms = wp_get_post_terms( $post->ID, 'outros-publicos' ); 
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+					echo '<p>Outros públicos: ';
+					$virgula = "";
+					foreach ( $terms as $term ) {
+						echo $virgula . '<a href="' . esc_url( get_term_link($term->term_id) ) . '">' . $term->name . '</a>';
+						$virgula = ", ";							
+					}
+					echo '.</p>';
+				}
 				?>
-
-			
-			<?php 
-			// Listas as taxonomias, porém lista somente o filho da categoria nível.
-			$args = array(
-				//default to current post
-				'post' => 0,
-				'before' => '<p>',
-				//this is the default
-				'sep' => ' ',
-				'after' => '</p>',
-				//this is the default
-				'template' => '<p>%s: %l.</p>'
-			);
-			the_taxonomies( $args ); 
-			?> 
 			</aside>
 			
 			<aside id="outras_praticas">

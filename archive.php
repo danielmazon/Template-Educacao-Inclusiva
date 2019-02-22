@@ -9,7 +9,18 @@
 	
 	<div id="relato_pratica">
 	
-		<h1><?php single_cat_title(); ?></h1>
+	<?php
+	/* User: igor - Recuperar o post para identificar o seu nível pai para exibir no título da página <h1> */
+	$queried_object = get_queried_object();
+	// User: igor - Recuperar o nível pai.
+	$parent = get_term_by('id', $queried_object->parent, 'nivel' ); ?>
+		<h1>
+		<?php single_cat_title(); ?>
+		<?php 
+		// User: igor - Exibir na tela caso haja nível pai.
+		if($parent->name != '') echo ' / ' . $parent->name; 
+		?>
+		</h1>
 			
 			<?php if (have_posts()) : ?>
             
