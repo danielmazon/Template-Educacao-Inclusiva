@@ -5,7 +5,7 @@ function relato_praticas_post_type(){
 
 	// definir um array de rótulos
 	$post_type_labels = array(
-		'name'                  => _x( 'Seus relatos de práticas inclusivas', 'Post Type General Name', 'text_domain' ),
+		'name'                  => _x( 'Práticas', 'Post Type General Name', 'text_domain' ),
 		'singular_name'         => _x( 'Prática', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'             => __( 'Práticas', 'text_domain' ),
 		'name_admin_bar'        => __( 'Relato de Práticas', 'text_domain' ),

@@ -19,7 +19,13 @@ Tags:
 #relato_pratica h1 {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
 	color:#dd4b39; 
-	padding-top: 50px;
+	padding-top: 10px;
+}
+
+.container h1 {
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+	color:#dd4b39; 
+	padding-top: 10px;
 }
 
 #relato_pratica h2 {
@@ -232,7 +238,7 @@ section {
   padding: 20px 0;
 }
 
-section h2 {
+section h1, h2 {
   font-size: 50px;
 }
 
@@ -476,7 +482,7 @@ section.cta .cta-content {
   z-index: 1;
 }
 
-section.cta .cta-content h2 {
+section.cta .cta-content h2, .cta .cta-content h1 {
   font-size: 50px;
   max-width: 520px;
   margin-top: 0;
@@ -635,7 +641,12 @@ height: 100%;
 	padding-top: 1em;
 }
 
-/**
+/* Estilos pra breadcumbs */
+#breadcrumbs {
+padding: 1em .5em 0 .5em;
+background-color: #f8f9fa;
+
+ /**
  * Comentários
  */
 .comments-top {
@@ -849,4 +860,5 @@ height: 100%;
 
 #comment-nav-above {
   margin: 15px 0;
+
 }
