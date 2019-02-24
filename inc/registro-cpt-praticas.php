@@ -5,7 +5,7 @@ function relato_praticas_post_type(){
 
 	// definir um array de rótulos
 	$post_type_labels = array(
-		'name'                  => _x( 'Seus relatos de práticas inclusivas', 'Post Type General Name', 'text_domain' ),
+		'name'                  => _x( 'Práticas', 'Post Type General Name', 'text_domain' ),
 		'singular_name'         => _x( 'Prática', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'             => __( 'Práticas', 'text_domain' ),
 		'name_admin_bar'        => __( 'Relato de Práticas', 'text_domain' ),
@@ -16,7 +16,7 @@ function relato_praticas_post_type(){
 		'add_new_item'          => __( 'Compartilhando sua experiência educacional inclusiva', 'text_domain' ),
 		'add_new'               => __( 'Novo relato', 'text_domain' ),
 		'new_item'              => __( 'Criar novo', 'text_domain' ),
-		'edit_item'             => __( 'Descrição da prática educacional inclusiva', 'text_domain' ),
+		'edit_item'             => __( 'Editar esta prática', 'text_domain' ),
 		'update_item'           => __( 'Atualizar relato', 'text_domain' ),
 		'view_item'             => __( 'Ver relato', 'text_domain' ),
 		'view_items'            => __( 'Ver relatos', 'text_domain' ),

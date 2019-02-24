@@ -3,7 +3,7 @@
     <section class="cta">
       <div class="cta-content">
         <div class="container">
-          <h2>Plataforma colaborativa de práticas educacionais inclusivas</h2>
+          <h1>Plataforma colaborativa de práticas educacionais inclusivas</h1>
           <a href="<?php echo get_site_url(); ?>/cadastro" class="btn btn btn-outline-light btn-lg" style="border-radius: 300px;padding: 15px 45px;">Compartilhe sua experiência</a>
         </div>
       </div>
@@ -43,11 +43,11 @@
 	
 		<div style="background-color:#dd4b39; margin-bottom:30px;">
 			<div class="container">
-				<h3  style="position: relative; float:right; color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Encontrar por: <?php
+				<h2  style="position: relative; float:right; color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Encontrar por: <?php
 				  $categories = get_categories('taxonomy=deficiencia');
 				 
 				  $select = "<select name='cat' id='cat' class='postform'>n";
-				  $select.= "<option value='-1'>Necessidade</option>n";
+				  $select.= "<option value='-1'>Público atendido</option>n";
 				 
 				  foreach($categories as $category){
 					if($category->count > 0){
@@ -57,13 +57,13 @@
 				  $select.= "</select>";
 				  echo $select;
 				?>
-				</h3><h3 style="color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Práticas compartilhadas: 
-				</h3>
+				</h2><h2 style="color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Práticas compartilhadas: 
+				</h2>
 				<script type="text/javascript"><!--
 					var dropdown = document.getElementById("cat");
 					function onCatChange() {
 						if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
-							location.href = "<?php echo home_url();?>/deficiencia/"+dropdown.options[dropdown.selectedIndex].value+"/";
+							location.href = "<?php echo home_url();?>/publicos-atendidos/"+dropdown.options[dropdown.selectedIndex].value+"/";
 						}
 					}
 					dropdown.onchange = onCatChange;
@@ -85,7 +85,7 @@
 						<div class="borda-praticas">
 
 
-							<h4><a href="<?php the_permalink(); ?>" style="font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; color:#dd4b39;"><?php the_title(); ?></a></h4>
+							<h3><a href="<?php the_permalink(); ?>" style="font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; color:#dd4b39;"><?php the_title(); ?></a></h3>
 
 							<?php if (has_post_thumbnail( $post->ID ) ): ?>
 							

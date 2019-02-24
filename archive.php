@@ -3,12 +3,14 @@
 
 <section class="container">
 
-	<!--<nav aria-label="caminho de migalhas" style="width:100%;">
-		<?php //the_breadcrumb(); ?>
-	</nav>-->
-	
 	<div id="relato_pratica">
-	
+
+	<?php
+	/* User: Igor - Incluir breadcrumbs para melhorar a navegabilidade do site e rank em buscadores */
+	if ( function_exists('yoast_breadcrumb') ) {
+	  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+	}
+	?>	
 	<?php
 	/* User: igor - Recuperar o post para identificar o seu nível pai para exibir no título da página <h1> */
 	$queried_object = get_queried_object();
