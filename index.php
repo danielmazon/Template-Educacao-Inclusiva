@@ -43,7 +43,11 @@
 	
 		<div style="background-color:#dd4b39; margin-bottom:30px;">
 			<div class="container">
-				<h2  style="position: relative; float:right; color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Encontrar por: <?php
+				<div class="row"><div class="col-md-6">
+				<h2 style="color:#fff; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; ">Práticas compartilhadas: 
+				</h2>
+				</div><div class="col-md-6" style="line-height: 60px;">
+				<h2 style="padding-top:15px; padding-bottom:15px; font-size: 1.5em;color:#fff; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; ">Encontrar por: <?php
 				  $categories = get_categories('taxonomy=deficiencia');
 				 
 				  $select = "<select name='cat' id='cat' class='postform'>n";
@@ -57,17 +61,18 @@
 				  $select.= "</select>";
 				  echo $select;
 				?>
-				</h2><h2 style="color:#fff; padding-bottom:30px; padding-top:30px; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';">Práticas compartilhadas: 
 				</h2>
+				</div>
 				<script type="text/javascript"><!--
 					var dropdown = document.getElementById("cat");
 					function onCatChange() {
 						if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
-							location.href = "<?php echo home_url();?>/publicos-atendidos/"+dropdown.options[dropdown.selectedIndex].value+"/";
+							location.href = "<?php echo home_url();?>/deficiencia/"+dropdown.options[dropdown.selectedIndex].value+"/";
 						}
 					}
 					dropdown.onchange = onCatChange;
 				--></script>
+				</div>
 			</div>
 		</div>
 		
