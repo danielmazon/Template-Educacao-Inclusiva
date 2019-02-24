@@ -9,7 +9,7 @@ function disable_drag_metabox() {
 add_action( 'admin_init', 'disable_drag_metabox' );
 */
 
-// Remove SLUG 
+// Remove BOXES 
 function remove_custom_taxonomy() {
 	if ( current_user_can('criador_praticas') ) { 
 		remove_meta_box( 'slugdiv', 'praticas', 'side' );
@@ -20,6 +20,7 @@ function remove_custom_taxonomy() {
 		remove_meta_box( 'superiordiv', 'praticas', 'side' );
 		remove_meta_box( 'deficienciasdiv', 'praticas', 'side' );
 		remove_meta_box( 'praticas_foobox_exclude', 'praticas', 'side' );
+		remove_meta_box( 'wpseo_meta', 'praticas', 'postbox' );
 	}
 }
 add_action( 'admin_menu', 'remove_custom_taxonomy' );
