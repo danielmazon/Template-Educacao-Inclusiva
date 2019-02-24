@@ -36,7 +36,7 @@
 				while ( $query->have_posts() ) {
 			 
 					$query->the_post();
-		?>	 
+		?>
 		
 			<div class="praticas-archive">
 			

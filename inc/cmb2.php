@@ -59,7 +59,7 @@ function box_deficiencias() {
 
 	$cmb = new_cmb2_box( array(
 		'id'            => 'box_deficiencias',
-		'title'         => __( 'Público-alvo atendido:', 'cmb2' ),
+		'title'         => __( 'Pessoas com deficiência desta prática: (Opcional)', 'cmb2' ),
 		'object_types'  => array( 'praticas', ),
 		'context'       => 'normal',
 		'priority'      => 'high',
@@ -67,20 +67,58 @@ function box_deficiencias() {
 	) );
 	
 	$cmb->add_field( array(
-		'name'           => 'Público-alvo atendido ',
+		'name'           => 'Tipos de deficiência ',
 		'desc'           => '',
 		'id'             => 'deficiencia',
 		'taxonomy'       => 'deficiencia',
 		'type'           => 'taxonomy_multicheck',
 		'select_all_button' => false,
 		'remove_default' => 'true',
-		'before_row'     => '<p>Agora, gostaríamos que você indicasse as deficiências atendidas nesta prática inclusiva (Você pode selecionar mais de uma):</p>',
+		'before_row'     => '<p>Agora, gostaríamos que você indicasse as deficiências atendidas nesta prática inclusiva (Você pode selecionar mais de uma ou nenhuma):</p>',
 	) );	
 	
 	$cmb->add_field( array(
 		'name'    => 'Especifique outras deficiências',
-		'desc'    => 'Se por acaso a deficiência atendida nesta prática não estiver listado acima, marque o item "Outras deficiências" e descreva neste campo',
+		'desc'    => 'Se por acaso a deficiência atendida nesta prática não estiver listado acima, marque o item "Outras deficiências" e descreva neste campo.',
 		'id'      => 'outras_deficiencias',
+		'type'    => 'text',
+	) );
+
+}
+
+/**
+ **  BOX TAG Outros públicos da prática
+ **/
+add_action( 'cmb2_admin_init', 'box_outrospublicos' );
+
+function box_outrospublicos() {
+
+	$prefix = '_outrospublicos_';
+
+	$cmb = new_cmb2_box( array(
+		'id'            => 'box_outrospublicos',
+		'title'         => __( 'Identifique outros públicos da prática: (Opcional)', 'cmb2' ),
+		'object_types'  => array( 'praticas', ),
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true,		
+	) );
+	
+	$cmb->add_field( array(
+		'name'           => 'Público(s) atendido(s) ',
+		'desc'           => '',
+		'id'             => 'publicoatendido',
+		'taxonomy'       => 'outros-publicos',
+		'type'           => 'taxonomy_multicheck',
+		'select_all_button' => false,
+		'remove_default' => 'true',
+		'before_row'     => '<p>Este é um campo opcional, informe outros públicos que fazem parte desta prática inclusiva (Você pode selecionar mais de uma ou nenhuma):</p>',
+	) );	
+	
+	$cmb->add_field( array(
+		'name'    => 'Especifique outros públicos que participam da prática',
+		'desc'    => 'Se por acaso os públicos que participam desta prática não estiver listado acima, marque o item "Outros públicos" e descreva neste campo.',
+		'id'      => 'outros_publicos',
 		'type'    => 'text',
 	) );
 
