@@ -84,8 +84,10 @@
 					$files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
 					echo '<h2>Fotos da prática inclusiva</h2><div class="row">';
 					foreach ( (array) $files as $attachment_id => $attachment_url ) {
+						/* User: igor - Incluir os dados das imagens */
+						$image = get_post($attachment_id); 
 						echo '<div class="col" style="padding-bottom:1em">';
-						echo '<a href="' . $attachment_url .'" class="foobox" rel="gallery">';
+						echo '<a href="' . $attachment_url .'" class="foobox" rel="gallery" data-caption-title="' . $image->post_title . '" data-caption-desc="' . $image->post_content . '">';
 						echo wp_get_attachment_image( $attachment_id, $img_size );
 						echo '</a>';
 						echo '</div>';
