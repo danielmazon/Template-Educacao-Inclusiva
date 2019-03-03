@@ -230,7 +230,7 @@ function cmb2_sample_metaboxes() {
 
 	
 /**
- **  Enviar Imagens
+ **  Enviar Anexos: PDF, Imagens e Links para o Youtube
  **/
 add_action( 'cmb2_admin_init', 'box_imagens' );
 
@@ -260,7 +260,7 @@ function box_imagens() {
 		'id'   => 'imagens',
 		'type' => 'file_list',
 		'preview_size' => array( 50, 50 ), // Default: array( 50, 50 )
-		'query_args' => array( 'type' => 'image' ), // Only images attachment
+		'query_args' => array( 'type' => array ('image/gif', 'image/jpg', 'image/png', 'image/jpeg' ) ) , // Only images attachment
 		'text' => array(
 			'add_upload_files_text' => 'Enviar imagens', // default: "Add or Upload Files"
 			'remove_image_text' => 'Remover', // default: "Remove Image"
@@ -292,6 +292,34 @@ function box_imagens() {
 		'type' => 'oembed',
 		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
 	) );
+	
+	//Adicionar outros arquivos relacionados a esta prática
+	$cmb->add_field( array(
+		'name'    => 'Enviar arquivos',
+		'desc'    => 'Envio de arquivos relacionados a esta prática, somente PDF.',
+		'id'      => 'pratica_arquivos',
+		'type'    => 'file_list',
+		// Optional:
+		'options' => array(
+			'url' => false, // Hide the text input for the url
+		),
+		'text'    => array(
+			'add_upload_file_text' => 'Adicionar arquivos' // Change upload button text. Default: "Add or Upload File"
+		),
+		// query_args are passed to wp.media's library query.
+		'query_args' => array(
+			'type' => 'application/pdf', // Make library only display PDFs.
+			// Or only allow gif, jpg, or png images
+			// 'type' => array(
+			// 	'image/gif',
+			// 	'image/jpeg',
+			// 	'image/png',
+			// ),
+		),
+		//'preview_size' => 'large', // Image size to use when previewing in the admin.
+	) );
+	
+	
 }
 
 
