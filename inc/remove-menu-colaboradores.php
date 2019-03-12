@@ -43,6 +43,15 @@ function remove_thumbnail_box() {
 	}
 }
 
+/* User: igor - Remover o box que permite a configuração de comentários nas práticas para os usuários criadores de práticas */
+// Remove Box de Discussão
+add_action('do_meta_boxes', 'remove_discussion_box');
+function remove_discussion_box() {
+	if ( current_user_can('criador_praticas') ) { 
+    remove_meta_box( 'commentstatusdiv','praticas','normal' );
+	}
+}
+
 
 /* insere balões
 add_action( 'admin_enqueue_scripts', 'my_admin_enqueue_scripts' );

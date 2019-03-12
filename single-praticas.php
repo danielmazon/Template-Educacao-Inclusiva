@@ -176,17 +176,6 @@
 					}
 					echo '.</p>';
 				}
-				// Recupera as taxonomias de outros-públicos deste post
-				$terms = wp_get_post_terms( $post->ID, 'outros-publicos' ); 
-				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-					echo '<p>Outros públicos: ';
-					$virgula = "";
-					foreach ( $terms as $term ) {
-						echo $virgula . '<a href="' . esc_url( get_term_link($term->term_id) ) . '">' . $term->name . '</a>';
-						$virgula = ", ";							
-					}
-					echo '.</p>';
-				}
 				?>
 			</aside>
 			
