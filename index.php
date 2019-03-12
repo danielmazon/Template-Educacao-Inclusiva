@@ -50,8 +50,8 @@
 				<h2 style="padding-top:15px; padding-bottom:15px; font-size: 1.5em;color:#fff; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; ">Encontrar por: <?php
 				  $categories = get_categories('taxonomy=deficiencia');
 				 
-				  $select = "<select name='cat' id='cat' class='postform'>n";
-				  $select.= "<option value='-1'>Público atendido</option>n";
+				  $select = "<select name='cat' id='cat' class='form-control'>\n";
+				  $select.= "<option value='-1'>Público atendido</option>\n";
 				 
 				  foreach($categories as $category){
 					if($category->count > 0){
@@ -81,7 +81,7 @@
 			<div class="row">
 
 				<?php
-					$loop = new WP_Query( array( 'post_type' => 'praticas', 'posts_per_page' => 150 ) );
+					$loop = new WP_Query( array( 'post_type' => 'praticas', 'orderby' => 'rand', 'posts_per_page' => 6 ) );
 					while ( $loop->have_posts() ) : $loop->the_post();
 				?> 
 					
@@ -108,7 +108,11 @@
 				<?php endwhile; ?> 
 
 			</div>
-	
+
+				<p style="text-align:center"><a class="btn" style="background-color: #014b94!important;" href="<?php echo get_site_url(); ?>/praticas">
+					<span style="color: #ffffff;"><strong>Acesse todas as práticas</strong></span></a>
+				</p>
+			
 	</section>
 
 <?php get_footer(); ?>

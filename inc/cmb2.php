@@ -59,7 +59,7 @@ function box_deficiencias() {
 
 	$cmb = new_cmb2_box( array(
 		'id'            => 'box_deficiencias',
-		'title'         => __( 'Pessoas com deficiência desta prática: (Opcional)', 'cmb2' ),
+		'title'         => __( 'Público da educação especial desta prática: (Opcional)', 'cmb2' ),
 		'object_types'  => array( 'praticas', ),
 		'context'       => 'normal',
 		'priority'      => 'high',
@@ -67,63 +67,24 @@ function box_deficiencias() {
 	) );
 	
 	$cmb->add_field( array(
-		'name'           => 'Tipos de deficiência ',
+		'name'           => 'Públicos da educação especial ',
 		'desc'           => '',
 		'id'             => 'deficiencia',
 		'taxonomy'       => 'deficiencia',
 		'type'           => 'taxonomy_multicheck',
 		'select_all_button' => false,
 		'remove_default' => 'true',
-		'before_row'     => '<p>Agora, gostaríamos que você indicasse as deficiências atendidas nesta prática inclusiva (Você pode selecionar mais de uma ou nenhuma):</p>',
+		'before_row'     => '<p>Agora, gostaríamos que você indicasse os públicos da educação especial atendidas nesta prática inclusiva (Você pode selecionar mais de uma ou nenhuma):</p>',
 	) );	
 	
 	$cmb->add_field( array(
-		'name'    => 'Especifique outras deficiências',
-		'desc'    => 'Se por acaso a deficiência atendida nesta prática não estiver listado acima, marque o item "Outras deficiências" e descreva neste campo.',
+		'name'    => 'Especifique outros públicos',
+		'desc'    => 'Se por acaso o público não é da educação especial ou o público é diferente das opções acima listadas, marque o item "Outros públicos" e descreva neste campo o público atendido.',
 		'id'      => 'outras_deficiencias',
 		'type'    => 'text',
 	) );
 
 }
-
-/**
- **  BOX TAG Outros públicos da prática
- **/
-add_action( 'cmb2_admin_init', 'box_outrospublicos' );
-
-function box_outrospublicos() {
-
-	$prefix = '_outrospublicos_';
-
-	$cmb = new_cmb2_box( array(
-		'id'            => 'box_outrospublicos',
-		'title'         => __( 'Identifique outros públicos da prática: (Opcional)', 'cmb2' ),
-		'object_types'  => array( 'praticas', ),
-		'context'       => 'normal',
-		'priority'      => 'high',
-		'show_names'    => true,		
-	) );
-	
-	$cmb->add_field( array(
-		'name'           => 'Público(s) atendido(s) ',
-		'desc'           => '',
-		'id'             => 'publicoatendido',
-		'taxonomy'       => 'outros-publicos',
-		'type'           => 'taxonomy_multicheck',
-		'select_all_button' => false,
-		'remove_default' => 'true',
-		'before_row'     => '<p>Este é um campo opcional, informe outros públicos que fazem parte desta prática inclusiva (Você pode selecionar mais de uma ou nenhuma):</p>',
-	) );	
-	
-	$cmb->add_field( array(
-		'name'    => 'Especifique outros públicos que participam da prática',
-		'desc'    => 'Se por acaso os públicos que participam desta prática não estiver listado acima, marque o item "Outros públicos" e descreva neste campo.',
-		'id'      => 'outros_publicos',
-		'type'    => 'text',
-	) );
-
-}
-
 
 // BOX Escrita da prática
 add_action( 'cmb2_admin_init', 'cmb2_sample_metaboxes' );
@@ -150,8 +111,8 @@ function cmb2_sample_metaboxes() {
 	) );
 
 	$cmb->add_field( array(
-		'name' => 'Quantos alunos com deficiência envolvidos?',
-		'desc' => 'Se sua prática não aborda alunos com deficência, este campo não é obrigatório.',
+		'name' => 'Quantos alunos da educação especial estão envolvidos?',
+		'desc' => 'Se sua prática não possui alunos da educação especial, deixe este campo em branco.',
 		'default' => '',
 		'id' => 'quantos',
 		'type' => 'text'
@@ -191,7 +152,7 @@ function cmb2_sample_metaboxes() {
 	
 	$cmb->add_field( array(
 		'name' => 'Quais os resultados alcançados?',
-		'desc' => 'Procure descrever com base nas seguintes perguntas norteadoras:<br>• Quais os benefícios percebidos aos alunos deficientes atendidos?<br>• O que você percebeu na turma após realizar esta prática?<br>• Quais aprendizados você teve como professor/a?',
+		'desc' => 'Procure descrever com base nas seguintes perguntas norteadoras:<br>• Quais os benefícios percebidos aos alunos da educação especial ou ao público alvo da prática atendidos?<br>• O que você percebeu na turma após realizar esta prática?<br>• Quais aprendizados você teve como professor/a?',
 		'default' => '',
 		'id' => 'realizar_pratica',
 		'type' => 'textarea'

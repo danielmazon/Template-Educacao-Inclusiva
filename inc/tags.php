@@ -69,19 +69,19 @@ function deficiencia_init() {
         'deficiencia',
         array('praticas'),
         array(
-            'label' => __( 'Deficiências' ),
+            'label' => __( 'Público da educação especial' ),
 			'rewrite' => array( 'slug' => 'deficiencia' ),
             'labels' =>  array(
-                'name'              => esc_html( 'Tipos de Deficiência', 'taxonomy general name' ),
-                'singular_name'     => esc_html( 'Tipos de Deficiência', 'taxonomy singular name' ),
-                'menu_name'         => esc_html( 'Deficiência' ),
-                'all_items'         => esc_html( 'Todos os tipos' ),
-                'edit_item'         => esc_html( 'Editar tipo' ),
-                'view_item'         => esc_html( 'Visualizar tipo' ),
-                'update_item'       => esc_html( 'Alterar tipo' ),
-                'add_new_item'      => esc_html( 'Adicionar tipo' ),
-                'search_items'      => esc_html( 'Procurar tipo' ),
-                'not_found'         => esc_html( 'Nenhuma tipo encontrado' ),
+                'name'              => esc_html( 'Público da educação especial', 'taxonomy general name' ),
+                'singular_name'     => esc_html( 'Público da educação especial', 'taxonomy singular name' ),
+                'menu_name'         => esc_html( 'Público da EE' ),
+                'all_items'         => esc_html( 'Todos os públicos da EE' ),
+                'edit_item'         => esc_html( 'Editar público da EE' ),
+                'view_item'         => esc_html( 'Visualizar público da EE' ),
+                'update_item'       => esc_html( 'Alterar público da EE' ),
+                'add_new_item'      => esc_html( 'Adicionar público da EE' ),
+                'search_items'      => esc_html( 'Procurar públicos da EE' ),
+                'not_found'         => esc_html( 'Nenhuma público da EE encontrado' ),
                ),
 			    'capabilities' => array(
 					'manage_terms' => 'edit_posts',
@@ -90,38 +90,6 @@ function deficiencia_init() {
 					'assign_terms' => 'read',
 				),
             'hierarchical' => true
-          )
-     );
-}
-
-// Criando a categoria outros públicos
-add_action( 'init', 'outrospublicos_init' );
-function outrospublicos_init() {
-    register_taxonomy(
-        'outros-publicos',
-        array('praticas'),
-        array(
-            'label' => __( 'Outros públicos' ),
-			'rewrite' => array( 'slug' => 'outros-publicos' ),
-            'labels' =>  array(
-                'name'              => esc_html( 'Outros públicos', 'taxonomy general name' ),
-                'singular_name'     => esc_html( 'Outro público', 'taxonomy singular name' ),
-                'menu_name'         => esc_html( 'Outros públicos' ),
-                'all_items'         => esc_html( 'Todos os outros públicos' ),
-                'edit_item'         => esc_html( 'Editar público' ),
-                'view_item'         => esc_html( 'Visualizar público' ),
-                'update_item'       => esc_html( 'Alterar público' ),
-                'add_new_item'      => esc_html( 'Adicionar público' ),
-                'search_items'      => esc_html( 'Procurar público' ),
-                'not_found'         => esc_html( 'Nenhuma público encontrado' ),
-               ),
-			    'capabilities' => array(
-					'manage_terms' => 'edit_posts',
-					'edit_terms'   => 'edit_posts',
-					'delete_terms' => 'edit_posts',
-					'assign_terms' => 'read',
-				),
-            'hierarchical' => false
           )
      );
 }
