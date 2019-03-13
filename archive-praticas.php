@@ -10,6 +10,86 @@
 	}
 	?>	
 	<h1>Práticas</h1>
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm">
+			<caption><span>Encontrar por:</span></caption>
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="col-sm">
+		  	<?php
+			  $categories = get_categories('taxonomy=deficiencia');
+			 
+			  $select = "<select name='cat' id='cat' class='form-control'>\n";
+			  $select.= "<option value='-1'>Público atendido</option>\n";
+			 
+			  foreach($categories as $category){
+				if($category->count > 0){
+					$select.= "<option value='".$category->slug."'>".$category->name."</option>";
+				}
+			  }
+			  $select.= "</select>";
+			  echo $select;
+			?>
+		</div>
+		<div class="col-sm">
+		  	<?php
+			  $categories = get_categories('taxonomy=modalidade');
+			 
+			  $select = "<select name='mod' id='mod' class='form-control'>\n";
+			  $select.= "<option value='-1'>Modalidade de ensino</option>\n";
+			 
+			  foreach($categories as $category){
+				if($category->count > 0){
+					$select.= "<option value='".$category->slug."'>".$category->name."</option>";
+				}
+			  }
+			  $select.= "</select>";
+			  echo $select;
+			?>
+		</div>
+		<div class="col-sm">
+		  	<?php
+			  $categories = get_categories('taxonomy=nivel');
+			 
+			  $select = "<select name='niv' id='niv' class='form-control'>\n";
+			  $select.= "<option value='-1'>Nível de ensino</option>\n";
+			 
+			  foreach($categories as $category){
+				if($category->count > 0){
+					$select.= "<option value='".$category->slug."'>".$category->name."</option>";
+				}
+			  }
+			  $select.= "</select>";
+			  echo $select;
+			?>
+		</div>
+	  </div>
+	</div>
+	<script type="text/javascript"><!--
+		var dropdown = document.getElementById("cat");
+		function onCatChange() {
+			if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
+				location.href = "<?php echo home_url();?>/publico-educacao-especial/"+dropdown.options[dropdown.selectedIndex].value+"/";
+			}
+		}
+		dropdown.onchange = onCatChange;
+		var dropdown2 = document.getElementById("mod");
+		function onModChange() {
+			if ( dropdown2.options[dropdown2.selectedIndex].value != -1 ) {
+				location.href = "<?php echo home_url();?>/modalidade/"+dropdown2.options[dropdown2.selectedIndex].value+"/";
+			}
+		}
+		dropdown2.onchange = onModChange;
+		var dropdown3 = document.getElementById("niv");
+		function onNivChange() {
+			if ( dropdown3.options[dropdown3.selectedIndex].value != -1 ) {
+				location.href = "<?php echo home_url();?>/nivel/"+dropdown3.options[dropdown3.selectedIndex].value+"/";
+			}
+		}
+		dropdown3.onchange = onNivChange;
+	--></script>
 	<div id="inicio_archive">
  
 		<?php

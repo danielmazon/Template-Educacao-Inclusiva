@@ -70,7 +70,7 @@ function deficiencia_init() {
         array('praticas'),
         array(
             'label' => __( 'Público da educação especial' ),
-			'rewrite' => array( 'slug' => 'deficiencia' ),
+			'rewrite' => array( 'slug' => 'publico-educacao-especial' ),
             'labels' =>  array(
                 'name'              => esc_html( 'Público da educação especial', 'taxonomy general name' ),
                 'singular_name'     => esc_html( 'Público da educação especial', 'taxonomy singular name' ),
