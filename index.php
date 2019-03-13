@@ -67,7 +67,7 @@
 					var dropdown = document.getElementById("cat");
 					function onCatChange() {
 						if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
-							location.href = "<?php echo home_url();?>/deficiencia/"+dropdown.options[dropdown.selectedIndex].value+"/";
+							location.href = "<?php echo home_url();?>/publico-educacao-especial/"+dropdown.options[dropdown.selectedIndex].value+"/";
 						}
 					}
 					dropdown.onchange = onCatChange;

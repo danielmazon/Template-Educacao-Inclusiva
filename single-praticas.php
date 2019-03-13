@@ -33,14 +33,14 @@
 					projeto */
 				$tag = get_post_meta( get_the_ID(), 'tag', true ); 
 				if ( !empty($tag)){
-					echo '<h2>Quantidade de alunos com deficiência envolvidos</h2>';
+					echo '<h2>Quantidade de alunos da educação especial envolvidos</h2>';
 					echo apply_filters('meta_content', $tag);
 				}
 				/* User: igor - Correção apontada pela Daniele dia 15/10/2018, conforme planilha compartilhada de controle de alterações do
 					projeto */
 				$quantos = get_post_meta( get_the_ID(), 'quantos', true ); 
 				if ( !empty($quantos)){
-					echo '<h2>Quantidade de alunos com deficiência envolvidos</h2>';
+					echo '<h2>Quantidade de alunos da educação especial envolvidos</h2>';
 					echo apply_filters('meta_content', $quantos);
 				}
                
@@ -168,7 +168,7 @@
 				// Recupera as taxonomias de deficiência deste post
 				$terms = wp_get_post_terms( $post->ID, 'deficiencia' ); 
 				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-					echo '<p>Tipos de deficiência: ';
+					echo '<p>Público da educação especial: ';
 					$virgula = "";
 					foreach ( $terms as $term ) {
 						echo $virgula . '<a href="' . esc_url( get_term_link($term->term_id) ) . '">' . $term->name . '</a>';
