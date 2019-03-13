@@ -52,13 +52,23 @@
 		<div class="col-sm">
 		  	<?php
 			  $categories = get_categories('taxonomy=nivel');
-			 
+			  //var_dump($categories);
 			  $select = "<select name='niv' id='niv' class='form-control'>\n";
 			  $select.= "<option value='-1'>Nível de ensino</option>\n";
 			 
 			  foreach($categories as $category){
 				if($category->count > 0){
-					$select.= "<option value='".$category->slug."'>".$category->name."</option>";
+					//var_dump($category);
+					// Recupera o nivel pai deste nivel
+					$txt_parent = '';
+					$slug_parent = '';
+					if($category->parent != "0") {
+						$parent = get_term_by('id', $category->parent, 'nivel' );
+						//var_dump($parent);
+						$slug_parent = $parent->slug . '/';
+						$txt_parent = $parent->name . ' > ';
+					}
+					$select.= "<option value='".$slug_parent.$category->slug."'>".$txt_parent.$category->name."</option>";
 				}
 			  }
 			  $select.= "</select>";
