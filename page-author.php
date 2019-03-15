@@ -17,15 +17,22 @@
 						$authors = $wpdb->get_results("SELECT ID, user_nicename from $wpdb->users ORDER BY display_name");
 						foreach ($authors as $author ) { 
 							$aid = $author->ID; 
+							/* User: Igor - Verificar se o author tem post de práticas para exibi-lo */
+							$author_posts = $wpdb->get_results("SELECT count(*) posts_pratica from $wpdb->posts WHERE post_author = '".$aid."' AND post_type = 'praticas' AND post_status = 'publish'");
+							//var_dump($author_posts[0]->posts_pratica);
+							if($author_posts[0]->posts_pratica>0) {
 							?>
 							<div class="col-md-12">
 
 								<div class="author_info <?php the_author_meta('user_nicename',$aid); ?>">
 									<span class="author_photo"><?php echo get_avatar($aid,46); ?></span>
-									<p><a href="<?php get_bloginfo('url'); ?><?php the_author_meta('user_nicename', $aid); ?>"><?php the_author_meta('display_name',$aid); ?></a></p>  
+									<p><a href="<?php get_bloginfo('url'); ?><?php the_author_meta('user_nicename', $aid); ?>"><?php the_author_meta('display_name',$aid); ?> (<?=$author_posts[0]->posts_pratica?>)</a></p>  
 									<p><?php the_author_meta('description',$aid); ?></p>
 								</div>
 							</div>
+							<?php
+							}
+							?>
 						<?php
 						} 						
 						?>
