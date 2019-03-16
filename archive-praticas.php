@@ -1,23 +1,23 @@
 <?php get_header(); ?>
 
-
-<section class="container">
-
-	<?php
-	/* User: Igor - Incluir breadcrumbs para melhorar a navegabilidade do site e rank em buscadores */
+<?php
+	/* User: Igor - Incluir breadcrumbs para melhorar a navegabilidade do site e rank em buscadores 
 	if ( function_exists('yoast_breadcrumb') ) {
-	  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+		yoast_breadcrumb( '<nav id="breadcrumbs"><div class="container">Você está em:  ','</div></nav>' );
 	}
-	?>	
-	<h1>Práticas</h1>
-	<div class="container">
-	  <div class="row">
-		<div class="col-sm">
-			<caption><span>Encontrar por:</span></caption>
-		</div>
-	  </div>
-	  <div class="row">
-		<div class="col-sm">
+	*/
+?>
+
+<section class="container" id="lista-praticas">
+
+	<h1>Lista de Práticas Inclusivas</h1>
+	
+	<div class="row">
+	
+		<div class="col-md-3" id="filtro-lista-praticas">
+		
+			<caption>Encontrar por:</caption>
+			
 		  	<?php
 			  $categories = get_categories('taxonomy=deficiencia');
 			 
@@ -32,8 +32,7 @@
 			  $select.= "</select>";
 			  echo $select;
 			?>
-		</div>
-		<div class="col-sm">
+			
 		  	<?php
 			  $categories = get_categories('taxonomy=modalidade');
 			 
@@ -48,8 +47,7 @@
 			  $select.= "</select>";
 			  echo $select;
 			?>
-		</div>
-		<div class="col-sm">
+
 		  	<?php
 			  $categories = get_categories('taxonomy=nivel');
 			  //var_dump($categories);
@@ -75,8 +73,7 @@
 			  echo $select;
 			?>
 		</div>
-	  </div>
-	</div>
+	
 	<script type="text/javascript"><!--
 		var dropdown = document.getElementById("cat");
 		function onCatChange() {
@@ -100,7 +97,8 @@
 		}
 		dropdown3.onchange = onNivChange;
 	--></script>
-	<div id="inicio_archive">
+	
+	<div id="inicio_archive" class="col-md-9">
  
 		<?php
 	
@@ -117,7 +115,6 @@
 					'posts_per_page' => 150,
 					'post_status'    => 'publish',
 					); 
-									
 			 
 			// Custom query.
 			$query = new WP_Query( $args );
@@ -134,22 +131,20 @@
 			<div class="praticas-archive">
 			
 				<h2><a href="<?php the_permalink(); ?>" style="font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; color:#dd4b39;"><?php the_title(); ?></a></h2>
-				
+
 				<div class="row">
-					<div class="col-md-9">
-						<p><?php $myExcerpt = get_the_excerpt(); /*$tags = array("<p>", "</p>"); $myExcerpt = str_replace($tags, "", $myExcerpt);*/ echo $myExcerpt; ?></p>
-					</div>
-				
 					<div class="col-md-3">
 						<?php if (has_post_thumbnail( $post->ID ) ): ?>
-							
-								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" style="float:left; margin:0 20px 10px 0;" >
-									<?php the_post_thumbnail('thumbnail'); ?>
-								</a>
-								
-							<?php endif; ?> 
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" style="float:left; margin:0 20px 10px 0;" >
+								<?php the_post_thumbnail('thumb_200'); ?>
+							</a>
+						<?php endif; ?> 
 					</div>
-
+					
+					<div class="col-md-9">
+						<?php echo the_excerpt() ?>
+						<small class="pull-right">Autor: <?php the_author_posts_link() ?> - Publicado em: <?php the_time('d/m/Y') ?></small>
+					</div>
 				</div>
 
 			</div>

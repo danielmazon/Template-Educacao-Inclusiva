@@ -1,26 +1,7 @@
-<!--
-	<section class="contact bg-primary" id="contact" style="margin-top:50px;">
-      <div class="container">
-        <h2>Faça
-          <i class="fa fa-heart"></i>
-          novos amigos!</h2>
-        <ul class="list-inline list-social">
-
-          <li class="list-inline-item social-facebook">
-            <a href="#">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-    </section>
-
-	-->
-	
-	<footer>
-      <div class="container">
-        <p>&copy; Educação Inclusiva 2018. Todos os direitos reservados.</p>
+<footer>
+	<div class="container">
+        <p>&copy;2019 Todos os direitos reservados. - www.educaçãoinclusiva.org</p>
+		<!--
         <ul class="list-inline">
           <li class="list-inline-item">
             <a href="#">Privacidade</a>
@@ -31,9 +12,10 @@
           <li class="list-inline-item">
             <a href="#">Dúvidas</a>
           </li>
-        </ul>
-      </div>
-    </footer>
+		</ul>
+		-->
+	</div>
+</footer>
 
 <?php wp_footer(); ?>
 

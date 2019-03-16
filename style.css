@@ -10,16 +10,29 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: educacaoinclusiva
 Tags: 
 */
+#praticas_home {
+	padding:0;
+}
+
+.barra_praticas_home {
+	background-color:#dd4b39;
+	margin-bottom:30px;
+}
+.barra_praticas_home h2 {
+	color:#fff;
+	padding-top:15px;
+	padding-bottom:15px;
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+}
+
 .bg-inicial {
-  background: #fdcc52;
-  background: -webkit-linear-gradient(#fdcc52, #fdc539);
-  background: linear-gradient(#fdcc52, #fdc539);
+  background: #fdc94a;
 }
 
 #relato_pratica h1 {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
 	color:#dd4b39; 
-	padding-top: 10px;
+	padding-top: 30px;
 }
 
 .container h1 {
@@ -32,46 +45,63 @@ Tags:
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
 	color:#dd4b39;
 	font-size: 18px;
-	padding-top: 30px;
+	padding-top: 10px;
+	letter-spacing: unset;
 }
 
 #mais_infos {
-	background-color:#f8f9fa;
 	padding-right: 10px;
 	padding-left: 10px;
-	margin-top:30px;
-	border-bottom: 5px solid #fff;
+	margin-top:15px;
+	margin-bottom:15px;
 }
 
 #outras_praticas {
-	background-color:#f8f9fa;
 	padding-right: 10px;
 	padding-left: 10px;
 	margin-top:10px;
-	border-bottom: 5px solid #fff;
 }
 
 #mais_infos p {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
 	color:#666;
-	font-size: 18px;
+	font-size: 16px;
+	text-align: left !important;
+	margin-bottom: 5px;
+}
+#mais_infos a {
+	color: #dd4b39;
 }
 
 #relato_pratica p {
 	text-align: justify;
 }
 
-h5.titulos_aside {
+a.titulos_aside h5 {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+	color: #dd4b39;
+}
+
+a.titulos_aside {
+	color: #dd4b39;
+}
+
+a.titulos_aside:hover {
 	color:#dd4b39;
 }
+
 #mais_infos h4, #outras_praticas h4 {
-	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; color:#666; border-bottom:1px solid #ccc; padding-top:15px;
-	
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+	font-size:1.3em;
+	font-weight:100;
+	color:#666; 
+	border-bottom:1px solid #ccc; 
+	padding-top:15px;
+	letter-spacing:0;
 }
 
 #lateral_single_praticas {
-	background-color:#f8f9fa;
+	border-left: 1px solid #efefef;
 	padding-right: 10px;
 	padding-left: 10px;
 }
@@ -146,8 +176,6 @@ body.login.login-action-register div#login {
 	color: #333;
     width: 100%;
 }
- 
-
 
 .fontenav {
 	color: rgba(255,255,255,.7);
@@ -164,8 +192,6 @@ body.login.login-action-register div#login {
 
 .logged-in .fixed-top { position: inherit !important;}
 
-
-
 .borda-praticas {
     position: relative;
     margin-bottom: 20px;
@@ -174,13 +200,33 @@ body.login.login-action-register div#login {
     border-width: .1rem;
 }
 
-
 .praticas-archive {
 	min-height:130px;
 	border-bottom: 1px solid #ccc;
 	margin-top:20px;
 }
 
+#lista-praticas h1 {
+	font-size: 24px;
+	letter-spacing: unset;
+	border-bottom:1px solid #ccc;
+}
+#lista-praticas h1 a {
+	color: #dd4b39;
+}
+
+
+#lista-praticas h2 {
+	font-size: 24px;
+}
+
+#lista-praticas select {
+	margin-bottom:10px;
+}
+
+#filtro-lista-praticas {
+	margin-top:10px;
+}
 
 /*
 *   Estilos do tema
@@ -189,6 +235,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -231,7 +278,6 @@ h6 {
 p {
   font-size: 18px;
   line-height: 1.5;
-  margin-bottom: 20px;
 }
 
 section {
@@ -643,12 +689,26 @@ height: 100%;
 
 /* Estilos pra breadcumbs */
 #breadcrumbs {
-padding: 1em .5em 0 .5em;
-background-color: #f8f9fa;
+	padding: .5em .0em .5em 0;
+	border-bottom: 1px solid #f0f0f0;
+	color:#555;
+}
+
+.breadcrumb_last {
+	color: #888;
+}
+
+nav#breadcrumbs a {
+	color: #dd4b39;
+}
+
 
  /**
  * Comentários
  */
+#comments a {
+}
+ 
 .comments-top {
     border-top: 4px solid #eaeaea;
 }

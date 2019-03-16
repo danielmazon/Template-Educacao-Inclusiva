@@ -15,8 +15,16 @@ add_action('add_meta_boxes', function() {
 });
 
 add_action('after_setup_theme', 'remove_admin_bar');	
- 	
- // tirar a barra admin dos usuários colaboradores	
+
+// Tamanho das Thumbnails
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'thumb_100', 100, 100, FALSE );
+add_image_size( 'thumb_130', 130, 130, FALSE );
+add_image_size( 'thumb_200', 200, 200, FALSE );
+add_image_size( 'thumb_300', 300, 300, FALSE );
+
+
+// tirar a barra admin dos usuários colaboradores	
 function remove_admin_bar() {	
     $user = wp_get_current_user();	
     // lembre-se de trocar 'author' para a função(role) especifica ao seu caso.	
@@ -24,7 +32,8 @@ function remove_admin_bar() {
     show_admin_bar(false);	
     }	
 }	
- // Redirecionando o usuário depois do login	
+
+// Redirecionando o usuário depois do login	
 add_filter( 'login_redirect', function( $url, $query, $user ) {	
     return home_url();	
 }, 10, 3 );
@@ -41,10 +50,6 @@ add_filter( 'meta_content', 'convert_chars' );
 add_filter( 'meta_content', 'wpautop' );
 add_filter( 'meta_content', 'shortcode_unautop' );
 add_filter( 'meta_content', 'prepend_attachment' );
-
-//colocar theme post-thumbnails
-add_theme_support( 'post-thumbnails' );
-add_image_size( 'imagem-aside', 100, 100, TRUE );
 
 // aplicar estilos no login do wp
 function custom_login_css() {

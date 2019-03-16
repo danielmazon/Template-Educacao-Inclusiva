@@ -1,5 +1,12 @@
 <?php get_header(); ?>
 
+<?php
+	/* User: Igor - Incluir breadcrumbs para melhorar a navegabilidade do site e rank em buscadores */
+	if ( function_exists('yoast_breadcrumb') ) {
+		yoast_breadcrumb( '<nav id="breadcrumbs"><div class="container">Você está em:  ','</div></nav>' );
+	}
+?>
+			
 <div class="container">
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -7,13 +14,6 @@
 	<article class="row" id="relato_pratica">
 	
 		<div class="col-md-8">
-
-			<?php
-			/* User: Igor - Incluir breadcrumbs para melhorar a navegabilidade do site e rank em buscadores */
-			if ( function_exists('yoast_breadcrumb') ) {
-			  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-			}
-			?>
 
 			<h1><?php the_title(); ?></h1>
 			
@@ -146,7 +146,7 @@
 
 			<aside id="mais_infos">
 
-				<h4>Sobre esta prática inclusiva:</h4>
+				<h4>Classificação:</h4>
 				<?php 
 				/* User: Igor - Modificação no código de exibição das taxonomias para exibir os itens pai das taxonomias que possuem hierarquia. */
 				// Recupera as taxonomias de modalidade deste post
@@ -181,26 +181,26 @@
 			
 			<aside id="outras_praticas">
 				
-				<h4>Outras práticas:</h4>
+				<h4>Conheça outras práticas:</h4>
 
 				<?php
-					$loop = new WP_Query( array( 'post_type' => 'praticas', 'posts_per_page' => 4,  'post__not_in' => array( $post->ID ) ) );
+					$loop = new WP_Query( array( 'post_type' => 'praticas', 'posts_per_page' => 6,  'post__not_in' => array( $post->ID ) ) );
 					while ( $loop->have_posts() ) : $loop->the_post();
 				?>
 							
 				<div class="row-fluid">
 					
-					<a href="<?php the_permalink(); ?>">
+					<a class="titulos_aside" href="<?php the_permalink(); ?>">
 					
 					<?php if (has_post_thumbnail( $post->ID ) ): ?>
 								
 						<div style="float:left; margin:0 10px 10px 0;">
-							<?php the_post_thumbnail('imagem-aside'); ?>
+							<?php the_post_thumbnail('thumb_130'); ?>
 						</div>
 								
 					<?php endif; ?> 
 
-					<h5 class="titulos_aside"><?php the_title(); ?></h5>
+					<h5><?php the_title(); ?></h5>
 
 					</a>
 
@@ -222,8 +222,6 @@
 		</aside>
 
 	</article>
-	
-	
 
 </div>
 
