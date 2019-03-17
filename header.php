@@ -38,29 +38,35 @@
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/sobre">Sobre o projeto</a>
+				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/parceiros">Parceiros</a>
+				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/contato">Contato</a>
 				</div>
 			  </li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo get_site_url(); ?>/blog">Blog</a>
+				</li>
+			<?php if (is_user_logged_in()) : ?>
 
-            <li class="nav-item">
-              <?php if (is_user_logged_in()) : ?>
-                  <a class="nav-link" href="<?php echo wp_logout_url(get_permalink()); ?>">Sair</a>
-              <?php else : ?>
-                  <a class="nav-link" href="<?php echo wp_login_url(get_permalink()); ?>">Acesse sua conta</a>
-              <?php endif;?>
-            </li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo get_site_url(); ?>/wp-admin/post-new.php?post_type=praticas">Escrever uma prática</a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link last-item" href="<?php echo wp_logout_url(get_permalink()); ?>">Sair</a>
+				</li>
 
-            <li class="last-item">
-              <?php if ( is_user_logged_in()) : ?>
-                  <a class="nav-link" href="<?php echo get_site_url(); ?>/wp-admin/post-new.php?post_type=praticas" style="border-bottom: 2px solid #fdc94a; color:#fff">Escrever uma prática</a>
-              <?php endif;?>
-            </li>
+			<?php else : ?>
 
-            <li class="nav-item">
-              <?php if ( ! is_user_logged_in()) : ?>
-                  <a class="nav-link last-item" href="<?php echo get_site_url(); ?>/cadastro">Cadastre-se</a>
-              <?php endif;?>
-            </li>
-
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo wp_login_url(get_permalink()); ?>">Acesse sua conta</a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link last-item" href="<?php echo get_site_url(); ?>/cadastro">Cadastre-se</a>
+				</li>
+				
+			<?php endif;?>
+			
           </ul>
 
         </div>

@@ -298,7 +298,7 @@ section h1, h2 {
   letter-spacing: 1px;
 }
 
-li.nav-item {
+li.nav-item, li.last-item{
 	line-height: .2em;
 	padding-right:2px;
 	padding-left:2px;

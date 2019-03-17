@@ -59,7 +59,7 @@ function blog_post_type(){
 			),
 		'map_meta_cap' => true,
 		'hierarchical' => false,
-		'supports' => array( 'title', 'thumbnail', 'excerpt', 'comments' ),
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
 		'has_archive' => true,
 		);
 
