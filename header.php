@@ -31,8 +31,25 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
           <ul class="navbar-nav ml-auto">
+		  
+			 <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Sobre o projeto
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/sobre">Sobre o projeto</a>
+				</div>
+			  </li>
 
             <li class="nav-item">
+              <?php if (is_user_logged_in()) : ?>
+                  <a class="nav-link" href="<?php echo wp_logout_url(get_permalink()); ?>">Sair</a>
+              <?php else : ?>
+                  <a class="nav-link" href="<?php echo wp_login_url(get_permalink()); ?>">Acesse sua conta</a>
+              <?php endif;?>
+            </li>
+
+            <li class="last-item">
               <?php if ( is_user_logged_in()) : ?>
                   <a class="nav-link" href="<?php echo get_site_url(); ?>/wp-admin/post-new.php?post_type=praticas" style="border-bottom: 2px solid #fdc94a; color:#fff">Escrever uma prática</a>
               <?php endif;?>
@@ -40,17 +57,7 @@
 
             <li class="nav-item">
               <?php if ( ! is_user_logged_in()) : ?>
-                  <a class="nav-link" href="<?php echo get_site_url(); ?>/cadastro">Cadastre-se</a>
-              <?php endif;?>
-            </li>
-	    <li class="nav-item">
-		<a class="nav-link" href="<?php echo get_site_url(); ?>/sobre">Sobre</a>
-	    </li>
-            <li class="nav-item">
-              <?php if (is_user_logged_in()) : ?>
-                  <a class="nav-link" href="<?php echo wp_logout_url(get_permalink()); ?>">Sair</a>
-              <?php else : ?>
-                  <a class="nav-link" href="<?php echo wp_login_url(get_permalink()); ?>">Entrar</a>
+                  <a class="nav-link last-item" href="<?php echo get_site_url(); ?>/cadastro">Cadastre-se</a>
               <?php endif;?>
             </li>
 

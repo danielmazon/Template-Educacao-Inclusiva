@@ -10,7 +10,6 @@ function remove_custom_taxonomy() {
 		remove_meta_box( 'superiordiv', 'praticas', 'side' );
 		remove_meta_box( 'deficienciasdiv', 'praticas', 'side' );
 		remove_meta_box( 'praticas_foobox_exclude', 'praticas', 'side' );// Remove Box de Lightbox
-		remove_meta_box( 'wpseo_meta', 'praticas', 'normal');			 // Remove Box de WPSeo
 		remove_meta_box( 'commentstatusdiv','praticas','normal' );		 // Remove Box de Discussão
 		remove_meta_box( 'postimagediv','praticas','side' ); 			 // Remove Box Imagem destaque 
 	}
@@ -18,32 +17,16 @@ function remove_custom_taxonomy() {
 add_action( 'admin_menu', 'remove_custom_taxonomy' );
 
 
-//
-function my_admin_print_footer_scripts() {
-	if ( current_user_can('criador_praticas') ) { 
-
-		$pointer_content = '<h3>Enviar para revisão</h3>';
-		$pointer_content .= '<p>Depois de preencher o formulário, clique em Enviar para revisão.</p>';
-	?>
-	   <script type="text/javascript">
-	   //<![CDATA[
-	   jQuery(document).ready( function($) {
-		$('#publishing-action').pointer({
-			content: '<?php echo $pointer_content; ?>',
-			position: 'top',
-			close: function() {
-			}
-		  }).pointer('open');
-	   });
-	   //]]>
-	   </script>
-	<?php
+// Remove box do YOAST SEO 
+add_action('add_meta_boxes', 'yoast_is_toast', 1000);
+function yoast_is_toast(){
+	if (current_user_can('criador_praticas')) {
+		remove_meta_box('wpseo_meta', 'praticas', 'normal');
 	}
 }
 
-/**
- * Remove menus dos colaboradores
- */
+
+// Remove menus dos colaboradores
 function remove_menus(){
   if ( current_user_can('criador_praticas') ) { 
   remove_menu_page( 'index.php' );                  //Dashboard
@@ -79,10 +62,27 @@ function remove_wp_logo( $wp_admin_bar ) {
 	}
 }
 
-
-
-
-
+//
+function my_admin_print_footer_scripts() {
+	if ( current_user_can('criador_praticas') ) { 
+		$pointer_content = '<h3>Enviar para revisão</h3>';
+		$pointer_content .= '<p>Depois de preencher o formulário, clique em Enviar para revisão.</p>';
+	?>
+	   <script type="text/javascript">
+	   //<![CDATA[
+	   jQuery(document).ready( function($) {
+		$('#publishing-action').pointer({
+			content: '<?php echo $pointer_content; ?>',
+			position: 'top',
+			close: function() {
+			}
+		  }).pointer('open');
+	   });
+	   //]]>
+	   </script>
+	<?php
+	}
+}
 
 
 
