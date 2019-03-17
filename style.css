@@ -393,7 +393,8 @@ li.nav-item, li.last-item{
     color: #fdcc52;
   }
 }
-.dropdown-item {
+
+a.dropdown-item {
     padding: 1rem 1.5rem;
 }
 
