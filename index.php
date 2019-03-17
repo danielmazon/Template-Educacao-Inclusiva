@@ -38,46 +38,49 @@
 	<div class="barra_praticas_home">
 	
 		<div class="container">
-		
-			<h2>Práticas compartilhadas:</h2>
-			<!--
+
 			<div class="row">
 								
 				<div class="col-md-6">
 					<h2>Práticas compartilhadas:</h2>
 				</div>
 				
-				<div class="col-md-6">
-					<h2 style="padding-top:15px; padding-bottom:15px; font-size: 1.5em;color:#fff; font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; ">Encontrar por:
-					<?php /*
-					  $categories = get_categories('taxonomy=deficiencia');
-					 
-					  $select = "<select name='cat' id='cat' class='form-control'>\n";
-					  $select.= "<option value='-1'>Público atendido</option>\n";
-					 
-					  foreach($categories as $category){
-						if($category->count > 0){
-							$select.= "<option value='".$category->slug."'>".$category->name."</option>";
+				<div class="col-md-6 pull-right">
+					
+					<div class="form-group row">
+						<label class="col-sm-5 col-form-label">Encontrar por:</label>
+						<div class="col-sm-7">
+							<?php 
+							  $categories = get_categories('taxonomy=deficiencia');
+							 
+							  $select = "<select name='cat' id='cat' class='form-control'>\n";
+							  $select.= "<option value='-1'>Público atendido</option>\n";
+							 
+							  foreach($categories as $category){
+								if($category->count > 0){
+									$select.= "<option value='".$category->slug."'>".$category->name."</option>";
+								}
+							  }
+							  $select.= "</select>";
+							  echo $select;
+							 
+							?>
+						</div>
+					</div>
+
+					<script type="text/javascript"><!--
+						var dropdown = document.getElementById("cat");
+						function onCatChange() {
+							if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
+								location.href = "<?php echo home_url();?>/publico-educacao-especial/"+dropdown.options[dropdown.selectedIndex].value+"/";
+							}
 						}
-					  }
-					  $select.= "</select>";
-					  echo $select;
-					  */
-					?>
-					</h2>
+						dropdown.onchange = onCatChange;
+					</script>
 				</div>
 
-				<script type="text/javascript"><!--
-					var dropdown = document.getElementById("cat");
-					function onCatChange() {
-						if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
-							location.href = "<?php echo home_url();?>/publico-educacao-especial/"+dropdown.options[dropdown.selectedIndex].value+"/";
-						}
-					}
-					dropdown.onchange = onCatChange;
-				</script>
-				</div>
-				-->
+			</div>
+
 		</div>
 		
 	</div>

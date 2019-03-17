@@ -1,26 +1,26 @@
 <?php
 
-/* Criando o Práticas custom post type */
-function relato_praticas_post_type(){
+/* Criando o Blog custom post type */
+function blog_post_type(){
 
 	// definir um array de rótulos
 	$post_type_labels = array(
-		'name'                  => _x( 'Práticas', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Prática', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Práticas', 'text_domain' ),
-		'name_admin_bar'        => __( 'Relato de Práticas', 'text_domain' ),
-		'archives'              => __( 'Arquivos de práticas', 'text_domain' ),
-		'attributes'            => __( 'Atributos da prática', 'text_domain' ),
-		'parent_item_colon'     => __( 'Prática:', 'text_domain' ),
-		'all_items'             => __( 'Lista de relatos', 'text_domain' ),
-		'add_new_item'          => __( 'Compartilhando sua experiência educacional inclusiva', 'text_domain' ),
-		'add_new'               => __( 'Novo relato', 'text_domain' ),
-		'new_item'              => __( 'Criar novo', 'text_domain' ),
-		'edit_item'             => __( 'Editar esta prática', 'text_domain' ),
-		'update_item'           => __( 'Atualizar relato', 'text_domain' ),
-		'view_item'             => __( 'Ver esta prática no site', 'text_domain' ),
-		'view_items'            => __( 'Ver relatos', 'text_domain' ),
-		'search_items'          => __( 'Procurar relato', 'text_domain' ),
+		'name'                  => _x( 'Blog', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Blog', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Blog', 'text_domain' ),
+		'name_admin_bar'        => __( 'Blog', 'text_domain' ),
+		'archives'              => __( 'Posts do Blog', 'text_domain' ),
+		'attributes'            => __( 'Atributos do Blog', 'text_domain' ),
+		'parent_item_colon'     => __( 'Blog:', 'text_domain' ),
+		'all_items'             => __( 'Todas as notícias', 'text_domain' ),
+		'add_new_item'          => __( 'Escrever nova notícia', 'text_domain' ),
+		'add_new'               => __( 'Escrever nova notícia', 'text_domain' ),
+		'new_item'              => __( 'Novo Post', 'text_domain' ),
+		'edit_item'             => __( 'Editar este post', 'text_domain' ),
+		'update_item'           => __( 'Atualizar post', 'text_domain' ),
+		'view_item'             => __( 'Ver esta notícia', 'text_domain' ),
+		'view_items'            => __( 'Ver as notícias no site', 'text_domain' ),
+		'search_items'          => __( 'Procurar post', 'text_domain' ),
 		'not_found'             => __( 'Não encontrado', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Não encontrado na lixeira', 'text_domain' ),
 		'featured_image'        => __( 'Imagem destaque', 'text_domain' ),
@@ -63,7 +63,7 @@ function relato_praticas_post_type(){
 		'has_archive' => true,
 		);
 
-	register_post_type( 'praticas', $post_type_args );
+	register_post_type( 'blog', $post_type_args );
 	
 }
-add_action( 'init', 'relato_praticas_post_type' );
+add_action( 'init', 'blog_post_type' );

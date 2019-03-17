@@ -1,10 +1,10 @@
 <?php
 
-require_once( dirname( __FILE__ ) . '/inc/add-menu-relatos.php');
-
 require_once( dirname( __FILE__ ) . '/inc/cmb2.php');
 
 require_once( dirname( __FILE__ ) . '/inc/registro-cpt-praticas.php');
+
+require_once( dirname( __FILE__ ) . '/inc/registro-cpt-blog.php');
 
 require_once( dirname( __FILE__ ) . '/inc/remove-menu-colaboradores.php');
 

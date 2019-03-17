@@ -17,12 +17,15 @@ Tags:
 .barra_praticas_home {
 	background-color:#dd4b39;
 	margin-bottom:30px;
+	padding-top:15px;
 }
 .barra_praticas_home h2 {
 	color:#fff;
-	padding-top:15px;
-	padding-bottom:15px;
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+}
+.col-form-label {
+	color:#fff;
+	text-align:right;
 }
 
 .bg-inicial {

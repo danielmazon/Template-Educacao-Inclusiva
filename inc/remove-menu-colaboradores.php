@@ -1,15 +1,5 @@
 <?php
-
-/* Desativa drag box
-function disable_drag_metabox() {
-	if ( current_user_can('criador_praticas') ) { 
-		wp_deregister_script('postbox');
-	}
-}
-add_action( 'admin_init', 'disable_drag_metabox' );
-*/
-
-// Remove SLUG 
+// Remove boxes dos criador_praticas 
 function remove_custom_taxonomy() {
 	if ( current_user_can('criador_praticas') ) { 
 		remove_meta_box( 'slugdiv', 'praticas', 'side' );
@@ -19,51 +9,16 @@ function remove_custom_taxonomy() {
 		remove_meta_box( 'mediodiv', 'praticas', 'side' );
 		remove_meta_box( 'superiordiv', 'praticas', 'side' );
 		remove_meta_box( 'deficienciasdiv', 'praticas', 'side' );
-		remove_meta_box( 'praticas_foobox_exclude', 'praticas', 'side' );
+		remove_meta_box( 'praticas_foobox_exclude', 'praticas', 'side' );// Remove Box de Lightbox
+		remove_meta_box( 'wpseo_meta', 'praticas', 'normal');			 // Remove Box de WPSeo
+		remove_meta_box( 'commentstatusdiv','praticas','normal' );		 // Remove Box de Discussão
+		remove_meta_box( 'postimagediv','praticas','side' ); 			 // Remove Box Imagem destaque 
 	}
 }
 add_action( 'admin_menu', 'remove_custom_taxonomy' );
 
-add_action('add_meta_boxes', 'yoast_is_toast', 1000);
-		function yoast_is_toast(){
-			//capability of 'manage_plugins' equals admin, therefore if NOT administrator
-			//hide the meta box from all other roles on the following 'post_type' 
-			//such as post, page, custom_post_type, etc
-			if (current_user_can('criador_praticas')) {
-				remove_meta_box('wpseo_meta', 'praticas', 'normal');
-			}
-		}
-		
 
-// Remove Box Imagem destaque 
-add_action('do_meta_boxes', 'remove_thumbnail_box');
-function remove_thumbnail_box() {
-	if ( current_user_can('criador_praticas') ) { 
-    remove_meta_box( 'postimagediv','praticas','side' );
-	}
-}
-
-/* User: igor - Remover o box que permite a configuração de comentários nas práticas para os usuários criadores de práticas */
-// Remove Box de Discussão
-add_action('do_meta_boxes', 'remove_discussion_box');
-function remove_discussion_box() {
-	if ( current_user_can('criador_praticas') ) { 
-    remove_meta_box( 'commentstatusdiv','praticas','normal' );
-	}
-}
-
-
-/* insere balões
-add_action( 'admin_enqueue_scripts', 'my_admin_enqueue_scripts' );
-function my_admin_enqueue_scripts() {
-	if ( current_user_can('criador_praticas') ) { 
-		wp_enqueue_style( 'wp-pointer' );
-		wp_enqueue_script( 'wp-pointer' );
-		add_action( 'admin_print_footer_scripts', 'my_admin_print_footer_scripts' );
-	}
-}
-*/
-
+//
 function my_admin_print_footer_scripts() {
 	if ( current_user_can('criador_praticas') ) { 
 
@@ -85,8 +40,6 @@ function my_admin_print_footer_scripts() {
 	<?php
 	}
 }
-
-
 
 /**
  * Remove menus dos colaboradores
@@ -125,3 +78,57 @@ function remove_wp_logo( $wp_admin_bar ) {
 		add_filter('screen_options_show_screen', 'remover_screen_options');	
 	}
 }
+
+
+
+
+
+
+
+
+/* 
+
+// Remove Box Imagem destaque 
+add_action('do_meta_boxes', 'remove_thumbnail_box');
+function remove_thumbnail_box() {
+	if ( current_user_can('criador_praticas') ) { 
+	}
+}
+
+Desativa drag box
+function disable_drag_metabox() {
+	if ( current_user_can('criador_praticas') ) { 
+		wp_deregister_script('postbox');
+	}
+}
+add_action( 'admin_init', 'disable_drag_metabox' );
+
+add_action('add_meta_boxes', 'yoast_is_toast', 1000);
+		function yoast_is_toast(){
+			//capacidade de 'manage_plugins' é igual a admin, portanto, se NÃO for administrador
+			//esconder a meta box de todas as outras funções no seguinte 'post_type'
+			//como post, page, custom_post_type, etc
+			if (current_user_can('criador_praticas')) {
+				remove_meta_box('wpseo_meta', 'praticas', 'normal');
+			}
+		}
+	
+/* User: igor - Remover o box que permite a configuração de comentários nas práticas para os usuários criadores de práticas 
+// Remove Box de Discussão
+add_action('do_meta_boxes', 'remove_discussion_box');
+function remove_discussion_box() {
+	if ( current_user_can('criador_praticas') ) { 
+    remove_meta_box( 'commentstatusdiv','praticas','normal' );
+	}
+}
+
+/* insere balões
+add_action( 'admin_enqueue_scripts', 'my_admin_enqueue_scripts' );
+function my_admin_enqueue_scripts() {
+	if ( current_user_can('criador_praticas') ) { 
+		wp_enqueue_style( 'wp-pointer' );
+		wp_enqueue_script( 'wp-pointer' );
+		add_action( 'admin_print_footer_scripts', 'my_admin_print_footer_scripts' );
+	}
+}
+*/
