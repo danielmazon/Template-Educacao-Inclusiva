@@ -27,8 +27,36 @@
 			
 		</div>
 		
-		<aside class="col-md-4">
+		<aside class="col-md-4" id="outras_praticas">
 		
+				<h4>Outras notícias:</h4>
+
+				<?php
+					$loop = new WP_Query( array( 'post_type' => 'blog', 'posts_per_page' => 6,  'post__not_in' => array( $post->ID ) ) );
+					while ( $loop->have_posts() ) : $loop->the_post();
+				?>
+							
+				<div class="row-fluid">
+					
+					<a class="titulos_aside" href="<?php the_permalink(); ?>">
+					
+					<?php if (has_post_thumbnail( $post->ID ) ): ?>
+								
+						<div style="float:left; margin:0 10px 10px 0;">
+							<?php the_post_thumbnail('thumb_130'); ?>
+						</div>
+								
+					<?php endif; ?> 
+
+					<h5><?php the_title(); ?></h5>
+
+					</a>
+
+				</div>	
+					
+				<hr style="clear:both;">
+					
+				<?php endwhile; ?>
 		</aside>
 		
 		<?php endwhile; else: ?>

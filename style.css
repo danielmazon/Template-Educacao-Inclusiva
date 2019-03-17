@@ -1,7 +1,7 @@
 /*
 Theme Name: Educação Inclusiva
 Theme URI: https://dmzweb.com.br
-Author: Daniel Mazon da Silva
+Author: Daniel Mazon da Silva e Igor Thiago Marques Mendonça
 Author URI: https://dmzweb.com.br
 Description: 
 Version: 1.0
@@ -10,6 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: educacaoinclusiva
 Tags: 
 */
+
 #praticas_home {
 	padding:0;
 }
@@ -59,10 +60,20 @@ Tags:
 	margin-bottom:15px;
 }
 
-#outras_praticas {
+#outras_praticas, #outras_noticias {
 	padding-right: 10px;
 	padding-left: 10px;
 	margin-top:10px;
+}
+
+#mais_infos h4, #outras_praticas h4, #outras_noticias h4  {
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+	font-size:1.3em;
+	font-weight:100;
+	color:#666; 
+	border-bottom:1px solid #ccc; 
+	padding-top:15px;
+	letter-spacing:0;
 }
 
 #mais_infos p {
@@ -87,16 +98,6 @@ a.titulos_aside {
 
 a.titulos_aside:hover {
 	color:#dd4b39;
-}
-
-#mais_infos h4, #outras_praticas h4 {
-	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
-	font-size:1.3em;
-	font-weight:100;
-	color:#666; 
-	border-bottom:1px solid #ccc; 
-	padding-top:15px;
-	letter-spacing:0;
 }
 
 #lateral_single_praticas {
@@ -185,10 +186,6 @@ body.login.login-action-register div#login {
 	padding-top: 8px;
 }
 
-#mainNav .navbar-toggler, #mainNav .navbar-nav>li>a, #mainNav .navbar-nav>li>a:focus {
-	color:#fff;
-}
-
 .logged-in .fixed-top { position: inherit !important;}
 
 .borda-praticas {
@@ -227,9 +224,6 @@ body.login.login-action-register div#login {
 	margin-top:10px;
 }
 
-/*
-*   Estilos do tema
-*/
 html,
 body {
   width: 100%;
@@ -285,6 +279,14 @@ section {
 
 section h1, h2 {
   font-size: 50px;
+}
+
+/* Menu */
+
+#mainNav .navbar-toggler, 
+#mainNav .navbar-nav>li>a, 
+#mainNav .navbar-nav>li>a:focus {
+	color:#fff;
 }
 
 #mainNav {
@@ -390,6 +392,9 @@ li.nav-item, li.last-item{
   #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
     color: #fdcc52;
   }
+}
+.dropdown-item {
+    padding: 1rem 1.5rem;
 }
 
 header.masthead {
