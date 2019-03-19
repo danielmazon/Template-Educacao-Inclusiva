@@ -62,6 +62,38 @@ function nivel_init() {
      );
 }
 
+// Criando a Taxonomia Estado
+add_action( 'init', 'estado_init' );
+function estado_init() {
+	register_taxonomy(
+        'estado',
+        array('praticas'),
+        array(
+            'label' => __( 'Estado' ),
+			//'rewrite' => array('slug' => 'estado', 'hierarchical' => true),
+            'labels' =>  array(
+                'name'              => esc_html( 'Estado', 'taxonomy general name' ),
+                'singular_name'     => esc_html( 'Estado', 'taxonomy singular name' ),
+                'menu_name'         => esc_html( 'Estado' ),
+                'all_items'         => esc_html( 'Todas os estados' ),
+                'edit_item'         => esc_html( 'Editar estado' ),
+                'view_item'         => esc_html( 'Visualizar estado' ),
+                'update_item'       => esc_html( 'Alterar estado' ),
+                'add_new_item'      => esc_html( 'Adicionar estado' ),
+                'search_items'      => esc_html( 'Procurar estado' ),
+                'not_found'         => esc_html( 'Nenhuma estado encontrado' ),
+               ),
+			    'capabilities' => array(
+					'manage_terms' => 'edit_posts',
+					'edit_terms'   => 'edit_posts',
+					'delete_terms' => 'edit_posts',
+					'assign_terms' => 'read',
+				),
+            //'hierarchical' => true
+          )
+     );
+}
+
 // Criando a  Deficiência
 add_action( 'init', 'deficiencia_init' );
 function deficiencia_init() {

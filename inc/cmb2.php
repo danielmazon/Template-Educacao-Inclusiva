@@ -92,7 +92,7 @@ add_action( 'cmb2_admin_init', 'cmb2_sample_metaboxes' );
 function cmb2_sample_metaboxes() {
 
 	$prefix = '_escrita_';
-	
+
 	$cmb = new_cmb2_box( array(
 		'id'            => 'escrita',
 		'title'         => __( 'Descreva sua prática neste espaço', 'cmb2' ),
@@ -101,6 +101,28 @@ function cmb2_sample_metaboxes() {
 		'priority'      => 'high',
 		'show_names'    => true,
 	) );
+
+	$cmb->add_field( array(
+		'name'           => 'Estado',
+		'desc'           => 'Selecione o estado em que ocorreu esta prática inclusiva.',
+		'id'             => 'estado',
+		'taxonomy'       => 'estado', //Enter Taxonomy Slug
+		'type'           => 'taxonomy_select',
+		'remove_default' => 'true' // Removes the default metabox provided by WP core.
+		// Optionally override the args sent to the WordPress get_terms function.
+		//'query_args' => array(
+			// 'orderby' => 'slug',
+			// 'hide_empty' => true,
+		//),
+	) );	
+	
+	$cmb->add_field( array(
+		'name' => 'Cidade em que ocorreu esta prática inclusiva?',
+		'desc' => 'Digite o nome da cidade em que esta prática inclusiva ocorreu.',
+		'default' => '',
+		'id' => 'cidade',
+		'type' => 'text'
+	) );	
 
 	$cmb->add_field( array(
 		'name' => 'Quantos alunos participaram desta prática inclusiva?',
