@@ -977,11 +977,14 @@ nav#breadcrumbs a {
 }
 
 .item {
-  background-color: none;
+  background-color: #444;
   display: inline-block;
   margin: 0 0 1em 0;
   width: 100%;
   cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-size: .8em;
 }
 
 .item img {

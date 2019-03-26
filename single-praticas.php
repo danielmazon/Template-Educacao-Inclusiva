@@ -91,7 +91,7 @@
 							echo '<div class="item">';
 							echo '<a href="' . $attachment_url .'" class="foobox" rel="gallery" data-caption-title="' . $image->post_title . '" data-caption-desc="' . $image->post_content . ' ">';
 							echo wp_get_attachment_image( $attachment_id, 'medium' );
-							echo '</a>';//<br />' . (($image->post_excerpt!='')?'<caption>'.$image->post_excerpt.'</caption>':'');
+							echo '</a><br />' . (($image->post_excerpt!='')?'<caption>'.$image->post_excerpt.'</caption>':'');
 							echo '</div>';
 						}
 						echo '</div>';
