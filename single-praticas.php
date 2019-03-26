@@ -88,7 +88,7 @@
 							/* User: igor - Incluir os dados das imagens */
 							$image = get_post($attachment_id); 
 							echo '<div class="col" style="padding-bottom:1em">';
-							echo '<a href="' . $attachment_url .'" class="foobox" rel="gallery" data-caption-title="' . $image->post_title . '" data-caption-desc="' . $image->post_content . '">';
+							echo '<a href="' . $attachment_url .'" class="foobox" rel="gallery" data-caption-title="' . $image->post_title . '" data-caption-desc="' . $image->post_content . ' ">';
 							echo wp_get_attachment_image( $attachment_id, 'medium' );
 							echo '</a>';
 							echo '</div>';

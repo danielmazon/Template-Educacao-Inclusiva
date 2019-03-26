@@ -1,5 +1,13 @@
 <?php get_header(); ?>
 
+<?php
+	/* User: Igor - Incluir breadcrumbs para melhorar a navegabilidade do site e rank em buscadores */
+	if ( function_exists('yoast_breadcrumb') ) {
+		yoast_breadcrumb( '<nav id="breadcrumbs"><div class="container">Você está em:  ','</div></nav>' );
+	}
+	
+?>
+
 <div class="container">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<article class="row" id="relato_pratica">
