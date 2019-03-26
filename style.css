@@ -941,3 +941,55 @@ nav#breadcrumbs a {
   margin: 15px 0;
 
 }
+
+/* User: Igor - Estilos para galeria de fotos nas práticas */
+#masonry {
+  column-count: 2;
+  column-gap: 1em;
+}
+
+@media(min-width: 30em) {
+  #masonry {
+    column-count: 1;
+    column-gap: 1em;
+  }
+}
+
+@media(min-width: 40em) {
+  #masonry {
+    column-count: 2;
+    column-gap: 1em;
+  }
+}
+
+@media(min-width: 60em) {
+  #masonry {
+    column-count: 3;
+    column-gap: 1em;
+  }
+}
+
+@media(min-width: 75em) {
+  #masonry {
+    column-count: 4;
+    column-gap: 1em;
+  }
+}
+
+.item {
+  background-color: none;
+  display: inline-block;
+  margin: 0 0 1em 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  margin-bottom: -4px;
+  
+  /*idk why but this fix stuff*/
+}
+/* Fim de estilos para galeria de fotos nas práticas */

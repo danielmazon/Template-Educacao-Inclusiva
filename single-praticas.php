@@ -6,7 +6,7 @@
 		yoast_breadcrumb( '<nav id="breadcrumbs"><div class="container">Você está em:  ','</div></nav>' );
 	}
 ?>
-			
+
 <div class="container">
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -80,17 +80,18 @@
 					echo apply_filters('meta_content', $detalhe_pratica);
 				}
 				// Lista de Imagens
+				/* User: Igor - Modificação na galeria de fotos */
 				//function cmb2_output_file_list( $file_list_meta_key, $img_size = 'large' ) {
 					$files = get_post_meta( get_the_ID(), 'imagens', 1 );
 					if($files != '') {
-						echo '<h2>Fotos da prática inclusiva</h2><div class="row">';
+						echo '<h2>Fotos da prática inclusiva</h2><div id="masonry">';
 						foreach ( (array) $files as $attachment_id => $attachment_url ) {
 							/* User: igor - Incluir os dados das imagens */
 							$image = get_post($attachment_id); 
-							echo '<div class="col" style="padding-bottom:1em">';
+							echo '<div class="item">';
 							echo '<a href="' . $attachment_url .'" class="foobox" rel="gallery" data-caption-title="' . $image->post_title . '" data-caption-desc="' . $image->post_content . ' ">';
 							echo wp_get_attachment_image( $attachment_id, 'medium' );
-							echo '</a>';
+							echo '</a>';//<br />' . (($image->post_excerpt!='')?'<caption>'.$image->post_excerpt.'</caption>':'');
 							echo '</div>';
 						}
 						echo '</div>';
