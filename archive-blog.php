@@ -6,7 +6,7 @@
 	}
 ?>
 
-<section class="container" >
+<section class="container"id="lista-praticas">
 	
 	<h1><a href="<?php echo site_url(); ?>/noticias">Lista de Notícias</a></h1>
 	
