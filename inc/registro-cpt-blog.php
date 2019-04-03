@@ -5,13 +5,14 @@ function blog_post_type(){
 
 	// definir um array de rótulos
 	$post_type_labels = array(
-		'name'                  => _x( 'Blog', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Blog', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Blog', 'text_domain' ),
-		'name_admin_bar'        => __( 'Blog', 'text_domain' ),
-		'archives'              => __( 'Posts do Blog', 'text_domain' ),
-		'attributes'            => __( 'Atributos do Blog', 'text_domain' ),
-		'parent_item_colon'     => __( 'Blog:', 'text_domain' ),
+		//User: Igor - Renomear os itens para exibir Notícia no site e área administrativa
+		'name'                  => _x( 'Notícias', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Notícia', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Notícias', 'text_domain' ),
+		'name_admin_bar'        => __( 'Notícias', 'text_domain' ),
+		'archives'              => __( 'Posts de Notícias', 'text_domain' ),
+		'attributes'            => __( 'Atributos da Notícia', 'text_domain' ),
+		'parent_item_colon'     => __( 'Notícia:', 'text_domain' ),
 		'all_items'             => __( 'Todas as notícias', 'text_domain' ),
 		'add_new_item'          => __( 'Escrever nova notícia', 'text_domain' ),
 		'add_new'               => __( 'Escrever nova notícia', 'text_domain' ),
@@ -36,11 +37,13 @@ function blog_post_type(){
 
 	// definir um array de argumentos
 	$post_type_args = array(
-		'labels' => $post_type_labels,
-		'public' => true,
-		'menu_position' => 2,
-		'menu_icon' => 'dashicons-media-document',
-		'capability_type' => 'blog',
+		'labels' 			=> $post_type_labels,
+		'public' 			=> true,
+		'menu_position' 	=> 2,
+		'menu_icon' 		=> 'dashicons-media-document',
+		'capability_type' 	=> 'blog',
+		//User: Igor - Criar slug diferente para o BLOG
+		'rewrite'          	=> array( 'slug' => 'noticias' ),
 		/*'capabilities' => array(
 			'read_post'					=> 'read_blog',
 			'read_private_posts' 		=> 'read_private_blog',

@@ -44,7 +44,7 @@
 				</div>
 			  </li>
 				<li class="nav-item">
-					<a class="nav-link" href="<?php echo get_site_url(); ?>/blog">Blog</a>
+					<a class="nav-link" href="<?php echo get_site_url(); ?>/noticias">Notícias</a>
 				</li>
 			<?php if (is_user_logged_in()) : ?>
 

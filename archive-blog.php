@@ -8,6 +8,8 @@
 
 <section class="container" >
 	
+	<h1><a href="<?php echo site_url(); ?>/noticias">Lista de Notícias</a></h1>
+	
 	<div class="row">
 
 		<?php
