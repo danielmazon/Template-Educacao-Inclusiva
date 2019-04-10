@@ -9,7 +9,7 @@
 
 <section>
 
-	<div class="container">
+	<div class="container" id="paginas">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 		

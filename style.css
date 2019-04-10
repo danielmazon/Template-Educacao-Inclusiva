@@ -45,7 +45,7 @@ Tags:
 	padding-top: 10px;
 }
 
-.container h2 {
+#paginas h2 {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
 	color:#dd4b39; 
 	padding-top: 10px;
@@ -53,14 +53,14 @@ Tags:
 
 }
 
-.container h3 {
+#paginas h3 {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
 	color:#dd4b39; 
 	padding-top: 10px;
 	font-size: 1.2em;
 }
 
-.container h4 {
+#paginas h4 {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
 	color:#dd4b39; 
 	padding-top: 10px;
