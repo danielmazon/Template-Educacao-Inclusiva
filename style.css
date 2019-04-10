@@ -45,6 +45,28 @@ Tags:
 	padding-top: 10px;
 }
 
+.container h2 {
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+	color:#dd4b39; 
+	padding-top: 10px;
+	font-size: 1.8em;
+
+}
+
+.container h3 {
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+	color:#dd4b39; 
+	padding-top: 10px;
+	font-size: 1.2em;
+}
+
+.container h4 {
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif'; 
+	color:#dd4b39; 
+	padding-top: 10px;
+	font-size: 1em;
+}
+
 #relato_pratica h2 {
 	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
 	color:#dd4b39;
