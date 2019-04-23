@@ -40,6 +40,7 @@
 				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/sobre">Sobre o projeto</a>
 				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/parceiros">Parceiros</a>
 				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/na-midia-clipping">Na mídia - clipping</a>
+				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/cacadores-de-inclusao">Caçadores de inclusão</a>
 				  <a class="dropdown-item" href="<?php echo get_site_url(); ?>/contato">Contato</a>
 				</div>
 			  </li>
