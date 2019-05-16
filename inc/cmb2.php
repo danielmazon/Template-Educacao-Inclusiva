@@ -41,9 +41,17 @@ function box_modalidade() {
 
 	// Nome do Curso 	
 	$cmb->add_field( array(
-		'name'    => 'Nome do curso ',
+		'name'    => 'Nome do curso',
 		'desc'    => 'Especifique o nome do curso técnico ou do curso superior, caso você tenha selecionado esta opção acima',
 		'id'      => 'curso_superior',
+		'type'    => 'text',
+	) );
+
+	// Responsáveis pela prática
+	$cmb->add_field( array(
+		'name'    => 'Responsável(eis) pela prática',
+		'desc'    => 'Informe o(s) responsável(eis) pela prática (separados por vírgula)',
+		'id'      => 'responsaveis_pratica',
 		'type'    => 'text',
 	) );
 }

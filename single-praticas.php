@@ -24,6 +24,12 @@
 			<?php
 				
 				// Inicio da prática
+				/* User: igor - Alteração solicitada na planilha de acompanhamento do projeto dia 10/05/2019 pelo Douglas */
+				$responsaveis_pratica = get_post_meta( get_the_ID(), 'responsaveis_pratica', true ); 
+				if ( !empty($responsaveis_pratica)){
+					echo '<h2>Responsável(eis) pela prática</h2>';
+					echo apply_filters('meta_content', $responsaveis_pratica);
+				}
 				$curso_alunos = get_post_meta( get_the_ID(), 'curso_alunos', true ); 
 				if ( !empty($curso_alunos)){
 					echo '<h2>Quantidade de alunos que participaram desta prática inclusiva</h2>';
