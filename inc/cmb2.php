@@ -1,5 +1,32 @@
 <?php
 /**
+ **  BOX Vídeos de ajuda
+ **/
+add_action( 'cmb2_admin_init', 'box_ajuda' );
+
+function box_ajuda() {
+
+	$prefix = '_ajuda_';
+	
+	$cmb = new_cmb2_box( array(
+		'id'            => 'box_ajuda',
+		'title'         => __( '<span class="dashicons dashicons-format-video"></span> Vídeo de ajuda para cadastro de prática educacional inclusiva (Clique aqui)', 'cmb2' ),
+		'object_types'  => array( 'praticas', ),
+		'priority'      => 'high',
+		'show_names'    => true,
+		'closed'		=> true,
+	) );
+	
+	$cmb->add_field( array(
+		'name' => '',
+		'desc' => '',
+		'id'   => 'id_box_ajuda',
+		'type' => 'title',
+		'before_row'     => '<p>O vídeo a seguir é uma ajuda no preenchimento do cadastro e prática inclusiva. Caso já tenha experiência no preenchimento de formulários ou já tenha cadastrado outras práticas, siga direto para preencher a prática educacional inclusiva abaixo do vídeo.</p><div class="row-fluid"><div class="span10 offset1 caixa-img"><iframe src="https://www.youtube.com/embed/yH3khRcCejo?rel=0" width="100%" height="400" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div></div>',
+	) );
+}
+
+/**
  **  BOX Modalidade de Ensino
  **/
 add_action( 'cmb2_admin_init', 'box_modalidade' );
