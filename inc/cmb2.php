@@ -160,6 +160,27 @@ function cmb2_sample_metaboxes() {
 	) );	
 
 	$cmb->add_field( array(
+		'name'           => 'Instituição responsável pela prática. <br />A prática está vinculada a qual instituição?',
+		'desc'           => 'Selecione a instituição que está vinculada a esta prática. Caso não tenha a instituição na lista, selecione a opção "Outra" e escreva o nome da instituição no campo a seguir.',
+		'id'             => 'instituicaopratica',
+		'taxonomy'       => 'instituicaopratica', //Enter Taxonomy Slug
+		'type'           => 'taxonomy_select',
+		'remove_default' => 'false', // Removes the default metabox provided by WP core.
+		// Optionally override the args sent to the WordPress get_terms function.
+		'query_args' => array(
+			 'orderby' => 'name',
+			 'hide_empty' => false,
+		),
+	) );	
+	
+	$cmb->add_field( array(
+		'name'    => 'Instituição responsável pela prática (caso não esteja listado na opção anterior)',
+		'desc'    => 'Se a instituição não estiver listada na opção anterior, preencha o nome da instituição vinculada a prática neste campo.',
+		'id'      => 'outras_instituicaopratica',
+		'type'    => 'text',
+	) );	
+	
+	$cmb->add_field( array(
 		'name' => 'Quantos alunos participaram desta prática inclusiva?',
 		'desc' => 'Informe neste campo a quantidade de alunos que participou em cada aplicação da prática inclusiva, incluindo o público-alvo atendido, se for o caso.<br />Exemplo: <br />"30 estudantes" ou<br />"Turmas de 35 estudantes" ou<br />"Turmas de 20 a 40 estudantes"<br />etc.',
 		'default' => '',

@@ -22,7 +22,6 @@
 			<hr>
 			
 			<?php
-				
 				// Inicio da prática
 				/* User: igor - Alteração solicitada na planilha de acompanhamento do projeto dia 10/05/2019 pelo Douglas */
 				$responsaveis_pratica = get_post_meta( get_the_ID(), 'responsaveis_pratica', true ); 
@@ -30,11 +29,37 @@
 					echo '<h2>Responsável(eis) pela prática</h2>';
 					echo apply_filters('meta_content', $responsaveis_pratica);
 				}
+				
+				/* User: igor - Alteração solicitada na planilha de acompanhamento do projeto dia 26/07/2019 por Douglas */
+				$terms = wp_get_post_terms( $post->ID, 'estado' ); 
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+					$estado = $terms[0]->name;
+				}
+				$cidade = get_post_meta( get_the_ID(), 'cidade', true ); 
+				if ( !empty($cidade)){
+					echo '<h2>Local da prática</h2>';
+					echo apply_filters('meta_content', $cidade . " / " . $estado);
+				}
+				$terms = wp_get_post_terms( $post->ID, 'instituicaopratica' ); 
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+					echo '<h2>Instituição vinculada a esta prática</h2>';
+					if($terms[0]->name!="Outra")
+						echo "<p>" . $terms[0]->name . "</p>";
+					else {
+						$outras_instituicaopratica = get_post_meta( get_the_ID(), 'outras_instituicaopratica', true ); 
+						if ( !empty($outras_instituicaopratica)){
+							echo apply_filters('meta_content', $outras_instituicaopratica);
+						}
+					}
+				}
+
+				
 				$curso_alunos = get_post_meta( get_the_ID(), 'curso_alunos', true ); 
 				if ( !empty($curso_alunos)){
 					echo '<h2>Quantidade de alunos que participaram desta prática inclusiva</h2>';
 					echo apply_filters('meta_content', $curso_alunos);
 				}
+				
 				/* User: igor - Correção apontada pela Daniele dia 15/10/2018, conforme planilha compartilhada de controle de alterações do
 					projeto */
 				$tag = get_post_meta( get_the_ID(), 'tag', true ); 
@@ -42,6 +67,7 @@
 					echo '<h2>Quantidade de alunos da educação especial envolvidos</h2>';
 					echo apply_filters('meta_content', $tag);
 				}
+				
 				/* User: igor - Correção apontada pela Daniele dia 15/10/2018, conforme planilha compartilhada de controle de alterações do
 					projeto */
 				$quantos = get_post_meta( get_the_ID(), 'quantos', true ); 

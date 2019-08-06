@@ -62,6 +62,38 @@ function nivel_init() {
      );
 }
 
+// Criando a Taxonomia de Instituição de ocorrência da prática
+add_action( 'init', 'instituicaopratica_init' );
+function instituicaopratica_init() {
+	register_taxonomy(
+        'instituicaopratica',
+        array('praticas'),
+        array(
+            'label' => __( 'Locais das práticas' ),
+			'rewrite' => array('slug' => 'instituicao_pratica', 'hierarchical' => true),
+            'labels' =>  array(
+                'name'              => esc_html( 'Instituição que a prática está vinculada', 'taxonomy general name' ),
+                'singular_name'     => esc_html( 'Instituição que a prática está vinculada', 'taxonomy singular name' ),
+                'menu_name'         => esc_html( 'Instituições vinculadas' ),
+                'all_items'         => esc_html( 'Todas as instituições' ),
+                'edit_item'         => esc_html( 'Editar instituição' ),
+                'view_item'         => esc_html( 'Visualizar instituição' ),
+                'update_item'       => esc_html( 'Alterar instituição' ),
+                'add_new_item'      => esc_html( 'Adicionar instituição' ),
+                'search_items'      => esc_html( 'Procurar instituição' ),
+                'not_found'         => esc_html( 'Nenhuma instituição encontrado' ),
+               ),
+			    'capabilities' => array(
+					'manage_terms' => 'edit_posts',
+					'edit_terms'   => 'edit_posts',
+					'delete_terms' => 'edit_posts',
+					'assign_terms' => 'read',
+				),
+            'hierarchical' => true
+          )
+     );
+}
+
 // Criando a Taxonomia Estado
 add_action( 'init', 'estado_init' );
 function estado_init() {
@@ -70,7 +102,7 @@ function estado_init() {
         array('praticas'),
         array(
             'label' => __( 'Estado' ),
-			//'rewrite' => array('slug' => 'estado', 'hierarchical' => true),
+			'rewrite' => array('slug' => 'estado', 'hierarchical' => true),
             'labels' =>  array(
                 'name'              => esc_html( 'Estado', 'taxonomy general name' ),
                 'singular_name'     => esc_html( 'Estado', 'taxonomy singular name' ),
@@ -89,7 +121,7 @@ function estado_init() {
 					'delete_terms' => 'edit_posts',
 					'assign_terms' => 'read',
 				),
-            //'hierarchical' => true
+            'hierarchical' => true
           )
      );
 }
