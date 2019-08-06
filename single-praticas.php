@@ -43,16 +43,14 @@
 				$terms = wp_get_post_terms( $post->ID, 'instituicaopratica' ); 
 				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 					echo '<h2>Instituição vinculada a esta prática</h2>';
-					if($terms[0]->name!="Outra")
-						echo "<p>" . $terms[0]->name . "</p>";
-					else {
-						$outras_instituicaopratica = get_post_meta( get_the_ID(), 'outras_instituicaopratica', true ); 
-						if ( !empty($outras_instituicaopratica)){
-							echo apply_filters('meta_content', $outras_instituicaopratica);
-						}
+					echo "<p>" . $terms[0]->name . "</p>";
+				} else {
+					$outras_instituicaopratica = get_post_meta( get_the_ID(), 'outras_instituicaopratica', true ); 
+					if ( !empty($outras_instituicaopratica)){
+						echo '<h2>Instituição vinculada a esta prática</h2>';
+						echo apply_filters('meta_content', $outras_instituicaopratica);
 					}
 				}
-
 				
 				$curso_alunos = get_post_meta( get_the_ID(), 'curso_alunos', true ); 
 				if ( !empty($curso_alunos)){

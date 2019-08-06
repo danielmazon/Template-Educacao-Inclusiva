@@ -161,7 +161,7 @@ function cmb2_sample_metaboxes() {
 
 	$cmb->add_field( array(
 		'name'           => 'Instituição responsável pela prática. <br />A prática está vinculada a qual instituição?',
-		'desc'           => 'Selecione a instituição que está vinculada a esta prática. Caso não tenha a instituição na lista, selecione a opção "Outra" e escreva o nome da instituição no campo a seguir.',
+		'desc'           => 'Selecione a instituição que está vinculada a esta prática. Caso não tenha a instituição na lista, informe o nome da mesma no campo a seguir.',
 		'id'             => 'instituicaopratica',
 		'taxonomy'       => 'instituicaopratica', //Enter Taxonomy Slug
 		'type'           => 'taxonomy_select',
